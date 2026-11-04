@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import PageMeta from '../../components/seo/PageMeta'
 import StructuredData, { buildBreadcrumbSchema } from '../../components/seo/StructuredData'
 import PageShell from '../../components/layout/PageShell'
@@ -10,9 +10,10 @@ import InternshipProgram from '../../components/careers/InternshipProgram'
 import JobDetailModal from '../../components/careers/JobDetailModal'
 import ApplicationForm from '../../components/careers/ApplicationForm'
 import { getJobBySlug, jobOpenings } from '../../data/careers'
+import { fetchPublicJobs } from '../../utils/careersApi'
 
-const buildJobPostingSchema = () =>
-  jobOpenings.map((job) => ({
+const buildJobPostingSchema = (jobs) =>
+  jobs.map((job) => ({
     '@context': 'https://schema.org',
     '@type': 'JobPosting',
     title: job.title,
@@ -24,7 +25,7 @@ const buildJobPostingSchema = () =>
       name: 'Bitvion Technologies',
       sameAs: 'https://bitvion.in',
     },
-    jobLocation: job.locations.map((location) => ({
+    jobLocation: (job.locations || []).map((location) => ({
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
@@ -39,26 +40,42 @@ const buildJobPostingSchema = () =>
   }))
 
 export const CompanyCareersPage = () => {
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedJob, setSelectedJob] = useState(null)
   const [detailJob, setDetailJob] = useState(null)
   const [showForm, setShowForm] = useState(false)
+  const [liveJobs, setLiveJobs] = useState(null)
+
+  useEffect(() => {
+    let active = true
+    fetchPublicJobs().then((jobs) => {
+      if (active && jobs?.length) setLiveJobs(jobs)
+    })
+    return () => { active = false }
+  }, [])
+
+  const catalog = liveJobs ?? jobOpenings
+  const fullTime = useMemo(() => catalog.filter((job) => job.type === 'Full-time' || job.employmentType === 'FULL_TIME'), [catalog])
+  const internships = useMemo(() => catalog.filter((job) => job.type === 'Internship' || job.employmentType === 'INTERNSHIP'), [catalog])
+
+  const findJob = useCallback((slug) => catalog.find((job) => job.slug === slug || job.id === slug) || getJobBySlug(slug), [catalog])
 
   const applySlug = searchParams.get('apply')
   const jobSlug = searchParams.get('job')
 
   useEffect(() => {
     if (applySlug) {
-      const job = getJobBySlug(applySlug)
+      const job = findJob(applySlug)
       if (job) {
         setSelectedJob(job)
         setShowForm(true)
       }
     } else if (jobSlug) {
-      const job = getJobBySlug(jobSlug)
+      const job = findJob(jobSlug)
       if (job) setDetailJob(job)
     }
-  }, [applySlug, jobSlug])
+  }, [applySlug, jobSlug, findJob])
 
   const openApply = useCallback((job) => {
     setSelectedJob(job)
@@ -69,9 +86,8 @@ export const CompanyCareersPage = () => {
   }, [setSearchParams])
 
   const openDetail = useCallback((job) => {
-    setDetailJob(job)
-    setSearchParams({ job: job.slug })
-  }, [setSearchParams])
+    navigate(`/company/careers/${job.slug}`)
+  }, [navigate])
 
   const closeDetail = useCallback(() => {
     setDetailJob(null)
@@ -98,15 +114,15 @@ export const CompanyCareersPage = () => {
             { name: 'Company', path: '/company' },
             { name: 'Careers', path: '/company/careers' },
           ]),
-          ...buildJobPostingSchema(),
+          ...buildJobPostingSchema(catalog),
         ]}
       />
 
       <CareersHero />
       <div className='max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-10'>
         <WorkingLocations />
-        <JobListings onViewRole={openDetail} onApply={openApply} employmentFilter='Full-time' />
-        <InternshipProgram onApply={openApply} />
+        <JobListings jobs={fullTime} onViewRole={openDetail} onApply={openApply} employmentFilter='Full-time' />
+        <InternshipProgram jobs={internships} onApply={openApply} />
 
         <section id='apply-form' className='py-14 sm:py-16 scroll-mt-28'>
           {showForm && selectedJob ? (

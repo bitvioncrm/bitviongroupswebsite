@@ -2,7 +2,9 @@ import React from 'react'
 import AnimateIn, { StaggerContainer, StaggerItem } from '../AnimateIn'
 import { internshipRoles } from '../../data/careers'
 
-const InternshipProgram = ({ onApply }) => (
+const InternshipProgram = ({ onApply, jobs }) => {
+  const roles = jobs ?? internshipRoles
+  return (
   <section id='internship-program' className='py-14 sm:py-16 scroll-mt-28' aria-labelledby='internship-heading'>
     <AnimateIn>
       <span className='font-poppins text-secondary text-[12px] uppercase tracking-[0.2em] mb-3 block'>Bitvion Internship Program</span>
@@ -16,8 +18,8 @@ const InternshipProgram = ({ onApply }) => (
     </AnimateIn>
 
     <StaggerContainer className='grid grid-cols-1 lg:grid-cols-2 gap-5' stagger={0.08}>
-      {internshipRoles.map((job) => (
-        <StaggerItem key={job.id}>
+      {roles.map((job) => (
+        <StaggerItem key={job.slug || job.id}>
           <article className='careers-glass-card h-full p-6 sm:p-7 rounded-[18px] border border-white/8 hover:border-secondary/25 transition-colors duration-300'>
             <div className='flex flex-wrap items-center gap-2 mb-4'>
               <span className='px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[12px] font-poppins'>{job.type}</span>
@@ -28,7 +30,7 @@ const InternshipProgram = ({ onApply }) => (
             <p className='font-poppins text-dimWhite/70 text-[13px] mb-3'>{job.location}</p>
             <p className='font-poppins text-dimWhite text-[15px] leading-[26px] mb-5'>{job.description}</p>
             <div className='flex flex-wrap gap-2 mb-6'>
-              {job.skills.slice(0, 6).map((skill) => (
+              {job.skills?.slice(0, 6).map((skill) => (
                 <span key={skill} className='px-3 py-1 rounded-full bg-primary border border-white/10 text-[12px] font-poppins text-dimWhite'>{skill}</span>
               ))}
             </div>
@@ -40,6 +42,7 @@ const InternshipProgram = ({ onApply }) => (
       ))}
     </StaggerContainer>
   </section>
-)
+  )
+}
 
 export default InternshipProgram

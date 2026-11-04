@@ -23,7 +23,7 @@ const JobCard = ({ job, onViewRole, onApply }) => (
     <p className='font-poppins text-dimWhite/70 text-[13px] mb-3'>{job.location}</p>
     <p className='font-poppins text-dimWhite text-[15px] leading-[26px] mb-5'>{job.description}</p>
     <div className='flex flex-wrap gap-2 mb-6'>
-      {job.skills.slice(0, 6).map((skill) => (
+      {job.skills?.slice(0, 6).map((skill) => (
         <span key={skill} className='px-3 py-1 rounded-full bg-primary border border-white/10 text-[12px] font-poppins text-dimWhite'>
           {skill}
         </span>
@@ -40,12 +40,13 @@ const JobCard = ({ job, onViewRole, onApply }) => (
   </article>
 )
 
-const JobListings = ({ onViewRole, onApply, employmentFilter = '' }) => {
+const JobListings = ({ onViewRole, onApply, employmentFilter = '', jobs }) => {
   const [filters, setFilters] = useState(emptyFilters)
+  const source = jobs ?? jobOpenings
 
   const filteredJobs = useMemo(() => {
     const query = filters.search.trim().toLowerCase()
-    return jobOpenings.filter((job) => {
+    return source.filter((job) => {
       if (employmentFilter && job.type !== employmentFilter) return false
       if (filters.department && job.department !== filters.department) return false
       if (filters.employmentType && job.type !== filters.employmentType) return false
@@ -55,7 +56,7 @@ const JobListings = ({ onViewRole, onApply, employmentFilter = '' }) => {
       const haystack = [job.title, job.department, job.description, ...job.skills].join(' ').toLowerCase()
       return haystack.includes(query)
     })
-  }, [filters, employmentFilter])
+  }, [filters, employmentFilter, source])
 
   const updateFilter = (key, value) => setFilters((prev) => ({ ...prev, [key]: value }))
 
@@ -103,7 +104,7 @@ const JobListings = ({ onViewRole, onApply, employmentFilter = '' }) => {
 
       <StaggerContainer className='grid grid-cols-1 lg:grid-cols-2 gap-5' stagger={0.08}>
         {filteredJobs.map((job) => (
-          <StaggerItem key={job.id}>
+          <StaggerItem key={job.slug || job.id}>
             <JobCard job={job} onViewRole={onViewRole} onApply={onApply} />
           </StaggerItem>
         ))}

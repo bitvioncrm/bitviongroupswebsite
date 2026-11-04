@@ -35,6 +35,34 @@ const getCounterStore = async () => {
 
 let localCounter = 0
 
+const tryBitvionOs = async ({ fields, cvFile }) => {
+  const base = process.env.OS_API_URL
+  if (!base) return null
+  try {
+    const form = new FormData()
+    for (const [key, value] of Object.entries(fields)) {
+      if (value !== undefined && value !== null && value !== '') form.append(key, String(value))
+    }
+    if (cvFile?.buffer) {
+      const blob = new Blob([cvFile.buffer], { type: cvFile.mimetype || 'application/octet-stream' })
+      form.append('resume', blob, cvFile.filename || 'resume.pdf')
+      form.append('cv', blob, cvFile.filename || 'resume.pdf')
+    }
+    const response = await fetch(`${base.replace(/\/$/, '')}/api/public/applications`, {
+      method: 'POST',
+      body: form,
+    })
+    const body = await response.json().catch(() => ({}))
+    if (response.ok || (response.status >= 400 && response.status < 500)) {
+      return { status: response.status, body: { success: Boolean(body.success ?? response.ok), ...body } }
+    }
+    return null
+  } catch (err) {
+    console.error('[os-recruitment-api]', err.message)
+    return null
+  }
+}
+
 export const nextApplicationId = async () => {
   const year = new Date().getFullYear()
   const counterKey = `counter-${year}`
@@ -61,9 +89,21 @@ export const persistApplication = async (record) => {
 }
 
 export const processApplicationSubmission = async ({ fields, cvFile, clientIp }) => {
+  if (fields.website) {
+    return { status: 200, body: { success: true, applicationId: 'BIT-APP-RECEIVED' } }
+  }
+
+  if (!fields.name && (fields.firstName || fields.lastName)) {
+    fields.name = `${fields.firstName || ''} ${fields.lastName || ''}`.trim()
+  }
+
   if (!checkRateLimit(clientIp || 'unknown')) {
     return { status: 429, body: { error: 'Too many submissions. Please try again later.' } }
   }
+
+  const osResult = await tryBitvionOs({ fields, cvFile })
+  if (osResult) return osResult
+
 
   const validation = validateApplication(fields)
   if (!validation.valid) {

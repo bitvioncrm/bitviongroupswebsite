@@ -25,6 +25,8 @@ const ApplicationForm = ({ selectedJob, onBack }) => {
   const cvInputRef = useRef(null)
   const submittingRef = useRef(false)
   const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
     name: '',
     age: '',
     gender: '',
@@ -87,7 +89,12 @@ const ApplicationForm = ({ selectedJob, onBack }) => {
     if (submittingRef.current) return
 
     setServerError('')
-    const payload = { ...form, privacyConsent: form.privacyConsent || undefined }
+    const payload = {
+      ...form,
+      name: `${form.firstName} ${form.lastName}`.trim(),
+      jobSlug: selectedJob?.slug,
+      privacyConsent: form.privacyConsent || undefined,
+    }
     const validation = validateForm(applicationSchema, payload)
     if (!validation.success) {
       setErrors(validation.errors)
@@ -119,12 +126,13 @@ const ApplicationForm = ({ selectedJob, onBack }) => {
       <div className='careers-glass-card p-8 sm:p-10 rounded-[20px] border border-secondary/20 text-center' role='status'>
         <div className='inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary/15 text-secondary text-[28px] mb-5' aria-hidden='true'>✓</div>
         <h3 className='font-poppins font-semibold text-white text-[28px] mb-3'>Application Received</h3>
-        <p className='font-poppins text-dimWhite text-[16px] mb-2'>Thank you, {form.name}.</p>
+        <p className='font-poppins text-dimWhite text-[16px] mb-2'>Thank you, {form.firstName} {form.lastName}.</p>
+        <p className='font-poppins text-white text-[16px] mb-2'>Application submitted successfully.</p>
         <p className='font-poppins text-dimWhite text-[16px] mb-6'>
           Your application for <span className='text-white'>{form.position}</span> has been successfully submitted.
         </p>
         <div className='inline-block px-5 py-3 rounded-[12px] bg-secondary/10 border border-secondary/20 mb-8'>
-          <p className='font-poppins text-[12px] uppercase tracking-[0.14em] text-dimWhite/70'>Application Reference</p>
+          <p className='font-poppins text-[12px] uppercase tracking-[0.14em] text-dimWhite/70'>Your application ID</p>
           <p className='font-poppins text-secondary text-[18px] font-semibold mt-1'>{applicationId}</p>
         </div>
         <div className='flex flex-col sm:flex-row gap-3 justify-center'>
@@ -161,12 +169,13 @@ const ApplicationForm = ({ selectedJob, onBack }) => {
       <fieldset className='border-0 p-0 m-0 flex flex-col gap-5'>
         <legend className='font-poppins text-white text-[16px] font-semibold mb-1'>Personal Information</legend>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
-          <FormField label='Full Name' name='name' value={form.name} onChange={handleChange} error={errors.name} required />
+          <FormField label='First Name' name='firstName' value={form.firstName} onChange={handleChange} error={errors.firstName} required />
+          <FormField label='Last Name' name='lastName' value={form.lastName} onChange={handleChange} error={errors.lastName} required />
           <FormField label='Age' name='age' type='number' value={form.age} onChange={handleChange} error={errors.age} required />
-          <FormField label='Gender' name='gender' value={form.gender} onChange={handleChange} error={errors.gender} options={genderOptions} />
+          <FormField label='Gender' name='gender' value={form.gender} onChange={handleChange} error={errors.gender} options={genderOptions} required />
           <FormField label='Email Address' name='email' type='email' value={form.email} onChange={handleChange} error={errors.email} required autoComplete='email' />
           <FormField label='Phone Number' name='phone' type='tel' value={form.phone} onChange={handleChange} error={errors.phone} required autoComplete='tel' />
-          <FormField label='Current Location' name='currentLocation' value={form.currentLocation} onChange={handleChange} error={errors.currentLocation} required />
+          <FormField label='Current Location' name='currentLocation' value={form.currentLocation} onChange={handleChange} error={errors.currentLocation} />
         </div>
       </fieldset>
 
@@ -175,7 +184,7 @@ const ApplicationForm = ({ selectedJob, onBack }) => {
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
           <FormField label='Position Applying For' name='position' value={form.position} onChange={() => {}} error={errors.position} required readOnly />
           <FormField label='Employment Type' name='employmentType' value={form.employmentType} onChange={() => {}} readOnly />
-          <FormField label='Preferred Work Location' name='preferredLocation' value={form.preferredLocation} onChange={handleChange} error={errors.preferredLocation} required options={locationOptions} />
+          <FormField label='Preferred Work Location' name='preferredLocation' value={form.preferredLocation} onChange={handleChange} error={errors.preferredLocation} options={locationOptions} />
         </div>
       </fieldset>
 
@@ -248,7 +257,7 @@ const ApplicationForm = ({ selectedJob, onBack }) => {
       <label className='flex items-start gap-3 cursor-pointer'>
         <input type='checkbox' name='privacyConsent' checked={form.privacyConsent} onChange={handleChange} className='mt-1 accent-secondary min-w-[18px] min-h-[18px]' />
         <span className='font-poppins text-dimWhite text-[14px] leading-relaxed'>
-          By submitting this application, you confirm that the information provided is accurate and consent to Bitvion Technologies using the submitted information for recruitment purposes. See our{' '}
+          I consent to BITVION Technologies storing and processing the information provided for recruitment purposes. See our{' '}
           <Link to='/privacy-policy' className='text-secondary hover:underline'>Privacy Policy</Link>.
         </span>
       </label>

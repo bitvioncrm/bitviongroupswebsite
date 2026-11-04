@@ -46,15 +46,17 @@ export const careersSchema = z.object({
 })
 
 export const applicationSchema = z.object({
-  name: z.string().min(2, 'Full name is required'),
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  name: z.string().optional(),
   age: z.coerce.number().min(16, 'Valid age is required').max(80, 'Valid age is required'),
-  gender: z.string().optional(),
+  gender: z.string().min(1, 'Gender is required'),
   email: z.string().email('Valid email is required'),
   phone: z.string().min(8, 'Phone number is required'),
-  currentLocation: z.string().min(2, 'Current location is required'),
+  currentLocation: z.string().optional(),
   position: z.string().min(2, 'Position is required'),
   employmentType: z.string().optional(),
-  preferredLocation: z.string().min(1, 'Preferred location is required'),
+  preferredLocation: z.string().optional(),
   qualification: z.string().optional(),
   college: z.string().optional(),
   graduationYear: z.string().optional(),
@@ -67,6 +69,7 @@ export const applicationSchema = z.object({
   portfolio: z.string().optional(),
   message: z.string().optional(),
   website: z.string().optional(),
+  referredBy: z.string().optional(),
   privacyConsent: z.literal(true, { errorMap: () => ({ message: 'Privacy consent is required' }) }),
 })
 

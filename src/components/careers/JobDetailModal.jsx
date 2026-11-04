@@ -45,7 +45,7 @@ const JobDetailModal = ({ job, onClose, onApply }) => {
               <div>
                 <h3 className='font-poppins text-secondary text-[12px] uppercase tracking-[0.16em] mb-3'>Responsibilities</h3>
                 <ul className='space-y-2' role='list'>
-                  {job.responsibilities.map((item) => (
+                  {job.responsibilities?.map((item) => (
                     <li key={item} className='font-poppins text-dimWhite text-[14px] leading-relaxed pl-4 relative before:content-[""] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-secondary/70'>{item}</li>
                   ))}
                 </ul>
@@ -53,13 +53,13 @@ const JobDetailModal = ({ job, onClose, onApply }) => {
               <div>
                 <h3 className='font-poppins text-secondary text-[12px] uppercase tracking-[0.16em] mb-3'>Required Skills</h3>
                 <div className='flex flex-wrap gap-2 mb-4'>
-                  {job.requiredSkills.map((skill) => (
+                  {job.requiredSkills?.map((skill) => (
                     <span key={skill} className='px-3 py-1 rounded-full bg-primary border border-white/10 text-[12px] font-poppins text-dimWhite'>{skill}</span>
                   ))}
                 </div>
                 <h3 className='font-poppins text-secondary text-[12px] uppercase tracking-[0.16em] mb-3'>Preferred Skills</h3>
                 <div className='flex flex-wrap gap-2'>
-                  {job.preferredSkills.map((skill) => (
+                  {job.preferredSkills?.map((skill) => (
                     <span key={skill} className='px-3 py-1 rounded-full bg-white/5 text-[12px] font-poppins text-dimWhite'>{skill}</span>
                   ))}
                 </div>
@@ -69,7 +69,7 @@ const JobDetailModal = ({ job, onClose, onApply }) => {
             <div className='mb-8'>
               <h3 className='font-poppins text-secondary text-[12px] uppercase tracking-[0.16em] mb-3'>Technology Stack</h3>
               <div className='flex flex-wrap gap-2'>
-                {job.stack.map((item) => (
+                {job.stack?.map((item) => (
                   <span key={item} className='px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[12px] font-poppins'>{item}</span>
                 ))}
               </div>

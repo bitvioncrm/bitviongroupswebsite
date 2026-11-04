@@ -76,7 +76,7 @@ const sendViaMailto = (to, subject, data) => {
 }
 
 export const submitApplication = async (data, cvFile) => {
-  if (data.website) return { success: true, applicationId: 'BITVION-APP-HONEYPOT' }
+  if (data.website) return { success: true, applicationId: 'BIT-APP-RECEIVED' }
 
   const formData = new FormData()
   Object.entries(data).forEach(([key, value]) => {
@@ -85,22 +85,36 @@ export const submitApplication = async (data, cvFile) => {
     }
   })
   formData.append('privacyConsent', 'true')
+  if (data.jobSlug || data.position) formData.append('jobSlug', data.jobSlug || '')
+  formData.append('resume', cvFile)
   formData.append('cv', cvFile)
 
-  const response = await fetch('/api/submit-application', {
-    method: 'POST',
-    body: formData,
-  })
+  const endpoints = ['/api/public/applications', '/api/submit-application']
+  let lastError = "We couldn't complete your application submission. Please try again."
 
-  const result = await response.json().catch(() => ({}))
-
-  if (!response.ok || !result.success) {
-    throw new Error(
-      result.error || "We couldn't complete your application submission. Please try again.",
-    )
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, { method: 'POST', body: formData })
+      const result = await response.json().catch(() => ({}))
+      if (response.ok && (result.success || result.applicationId)) {
+        return result
+      }
+      if (response.status === 409) {
+        throw new Error(result.message || result.error || 'This candidate has already applied for this position.')
+      }
+      if (response.status >= 400 && response.status < 500) {
+        throw new Error(result.message || result.error || lastError)
+      }
+      lastError = result.error || result.message || lastError
+    } catch (err) {
+      if (err.message?.includes('already applied') || err.message?.includes('Consent') || err.message?.includes('required')) {
+        throw err
+      }
+      lastError = err.message || lastError
+    }
   }
 
-  return result
+  throw new Error(lastError)
 }
 
 export const submitForm = async (endpoint, data) => {

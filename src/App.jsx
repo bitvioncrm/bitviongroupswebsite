@@ -18,6 +18,7 @@ const AboutPage = lazyNamed(() => import('./pages/company/CompanyPages'), 'About
 const FounderPage = lazyNamed(() => import('./pages/company/CompanyPages'), 'FounderPage')
 const TechnologyPage = lazyNamed(() => import('./pages/company/CompanyPages'), 'TechnologyPage')
 const CompanyCareersPage = lazyNamed(() => import('./pages/company/CareersPage'), 'CompanyCareersPage')
+const CareersJobPage = lazyNamed(() => import('./pages/company/CareersJobPage'), 'CareersJobPage')
 const ProductsOverview = lazyNamed(() => import('./pages/products/ProductPages'), 'ProductsOverview')
 const YatrikERPPage = lazyNamed(() => import('./pages/products/ProductPages'), 'YatrikERPPage')
 const InsightsPage = lazyNamed(() => import('./pages/insights/InsightPages'), 'InsightsPage')
@@ -54,6 +55,7 @@ const App = () => (
         <Route path='company/founder' element={<S><FounderPage /></S>} />
         <Route path='company/technology' element={<S><TechnologyPage /></S>} />
         <Route path='company/careers' element={<S><CompanyCareersPage /></S>} />
+        <Route path='company/careers/:slug' element={<S><CareersJobPage /></S>} />
         <Route path='insights' element={<S><InsightsPage /></S>} />
         <Route path='insights/:slug' element={<S><InsightArticlePage /></S>} />
         <Route path='contact' element={<S><ContactPage /></S>} />
