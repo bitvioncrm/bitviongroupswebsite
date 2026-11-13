@@ -44,6 +44,8 @@ const Hero = () => {
             >
               <span className='hero-eyebrow-dot w-[7px] h-[7px] rounded-full bg-secondary shrink-0' aria-hidden='true' />
               <span className='font-poppins text-[10px] xs:text-[11px] sm:text-[12px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-dimWhite leading-snug'>
+                <Link to='/' className='hover:text-white'>Bitvion Groups</Link>
+                <span aria-hidden='true'> · </span>
                 Intelligent Technology Systems
               </span>
             </motion.div>
@@ -112,7 +114,12 @@ const Hero = () => {
               className='lg:hidden hero-core-mobile mt-6 sm:mt-7 flex items-center justify-center w-full pt-2'
               variants={layer}
             >
-              <BitvionCore variant='mobile' />
+              <BitvionCore
+                variant='mobile'
+                markSrc='/bitvion-groups-seal.webp'
+                roundMark
+                markClassName='seal-mark'
+              />
             </motion.div>
 
             <motion.p
@@ -131,7 +138,12 @@ const Hero = () => {
             style={reduceMotion ? undefined : { y: visualY, opacity: visualOpacity }}
           >
             <div className='w-full max-w-[520px]'>
-              <BitvionCore variant='desktop' />
+              <BitvionCore
+                variant='desktop'
+                markSrc='/bitvion-groups-seal.webp'
+                roundMark
+                markClassName='seal-mark'
+              />
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,13 @@
 export const staticRoutes = [
   '/',
+  '/technologies',
+  '/business',
+  '/trading',
+  '/consultancy',
+  '/travels',
+  '/ventures',
+  '/imports-exports',
+  '/bitvion-products',
   '/solutions',
   '/products',
   '/products/yatrikerp',

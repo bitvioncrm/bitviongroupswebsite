@@ -4,11 +4,14 @@ import styles from '../../style'
 import Breadcrumbs from './Breadcrumbs'
 import RevealText from '../RevealText'
 
+import HeroBackground from '../hero/HeroBackground'
+
 const PageHero = ({ eyebrow, title, subtitle, breadcrumbs = [] }) => {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section className='pt-28 sm:pt-36 pb-10 sm:pb-14 relative'>
+    <section className='pt-28 sm:pt-36 pb-10 sm:pb-14 relative overflow-hidden'>
+      <HeroBackground />
       <div className='absolute z-0 w-[40%] h-[40%] top-0 right-0 blue__gradient' aria-hidden='true' />
       <motion.div
         className='relative z-[1]'

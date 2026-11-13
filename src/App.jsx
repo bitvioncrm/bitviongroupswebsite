@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
+import GroupsHome from './pages/GroupsHome'
+import SectorPage from './pages/sectors/SectorPage'
 import CookieConsent from './components/CookieConsent'
 
 const lazyNamed = (importFn, name) =>
@@ -41,7 +43,15 @@ const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<GroupsHome />} />
+        <Route path='technologies' element={<Home />} />
+        <Route path='business' element={<SectorPage slug='business' />} />
+        <Route path='trading' element={<SectorPage slug='trading' />} />
+        <Route path='consultancy' element={<SectorPage slug='consultancy' />} />
+        <Route path='travels' element={<SectorPage slug='travels' />} />
+        <Route path='ventures' element={<SectorPage slug='ventures' />} />
+        <Route path='imports-exports' element={<SectorPage slug='imports-exports' />} />
+        <Route path='bitvion-products' element={<SectorPage slug='bitvion-products' />} />
         <Route path='solutions' element={<S><SolutionsOverview /></S>} />
         <Route path='solutions/:slug' element={<S><SolutionDetailPage /></S>} />
         <Route path='products' element={<S><ProductsOverview /></S>} />

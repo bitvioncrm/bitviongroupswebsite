@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { navLinks } from '../constants'
+import { groupNav, isTechnologyPath } from '../data/groups'
 import { menu } from '../assets'
 import CTAButton from './CTAButton'
 import MobileMenu from './MobileMenu'
@@ -11,6 +12,10 @@ const Header = () => {
   const location = useLocation()
   const [toggle, setToggle] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const links = isTechnologyPath(location.pathname)
+    ? [{ id: 'group', title: 'Group', path: '/' }, ...navLinks]
+    : groupNav
 
   const isActive = (path) => {
     if (path === '/company/careers') return location.pathname.startsWith('/company/careers')
@@ -57,7 +62,7 @@ const Header = () => {
 
         {/* Desktop */}
         <div
-          className={`hidden md:flex max-w-[1400px] mx-auto items-center gap-3 sm:gap-4 h-[72px] sm:h-[76px] transition-all duration-500 ${
+          className={`hidden md:flex max-w-[1400px] mx-auto items-center gap-3 sm:gap-4 min-h-[72px] sm:min-h-[76px] h-auto py-2 transition-all duration-500 ${
             scrolled ? 'glass-nav glass-nav-scrolled' : ''
           }`}
         >
@@ -68,11 +73,11 @@ const Header = () => {
             aria-label='Main navigation'
           >
             <ul className='list-none flex items-center flex-wrap gap-x-1 lg:gap-x-2'>
-              {navLinks.map((nav) => (
+              {links.map((nav) => (
                 <li key={nav.id}>
                   <Link
                     to={nav.path}
-                    className={`font-poppins font-normal text-[14px] lg:text-[15px] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-secondary rounded-lg px-2.5 py-1.5 relative group whitespace-nowrap ${
+                    className={`font-poppins font-normal ${links.length > 7 ? 'text-[12px] lg:text-[13px] px-1.5' : 'text-[14px] lg:text-[15px] px-2.5'} transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-secondary rounded-lg py-1.5 relative group whitespace-nowrap ${
                       isActive(nav.path) ? 'text-white' : 'text-dimWhite hover:text-white'
                     }`}
                   >

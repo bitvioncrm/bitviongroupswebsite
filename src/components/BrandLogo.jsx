@@ -30,21 +30,25 @@ const BrandLogo = ({ variant = 'header', className = '', onClick }) => {
     <Link
       to='/'
       onClick={onClick}
-      aria-label='Bitvion Technologies home'
+      aria-label='Bitvion Groups home'
       className={`group inline-flex items-center ${size.gap} ${className}`}
     >
       <img
         src={bitvionMark}
         alt=''
-        className={`${size.mark} object-contain object-center transition-transform duration-300 group-hover:scale-[1.04]`}
-        style={{ filter: 'drop-shadow(0 0 8px rgba(0,246,255,0.25))' }}
+        className={`${size.mark} object-contain object-center`}
+        width={568}
+        height={458}
+        decoding='async'
+        draggable={false}
+        style={{ filter: 'drop-shadow(0 1px 0 rgba(255,255,255,0.18))' }}
       />
       <span className='flex flex-col justify-center'>
         <span className={`font-poppins font-semibold text-white ${size.name}`}>
           BIT<span className='text-secondary'>V</span>ION
         </span>
         <span className={`font-poppins font-medium text-dimWhite uppercase mt-[5px] ${size.sub}`}>
-          Technologies
+          Groups
         </span>
       </span>
     </Link>

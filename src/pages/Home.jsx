@@ -25,7 +25,15 @@ import styles from '../style'
 const Home = () => {
   return (
     <>
-      <PageMeta title={HOME_TITLE} description={HOME_DESCRIPTION} path='/' />
+      <PageMeta
+        title={HOME_TITLE}
+        description={HOME_DESCRIPTION}
+        path='/technologies'
+        keywords='Bitvion Technologies, AI software company India, software company Kerala, software company Bangalore, technology company India, custom software development, intelligent automation, YatrikERP, Akhil Shijo'
+        image='https://bitvion.in/bitvion-groups-seal.webp'
+        imageAlt='Bitvion Groups seal'
+        siteName='Bitvion Technologies'
+      />
       <StructuredData
         data={[
           organizationSchema,
@@ -34,7 +42,7 @@ const Home = () => {
           buildWebPageSchema({
             name: HOME_TITLE,
             description: HOME_DESCRIPTION,
-            path: '/',
+            path: '/technologies',
           }),
         ]}
       />

@@ -36,7 +36,7 @@ const FounderImage = ({ className = '', size = 'large' }) => {
       <img
         src={founderPhoto}
         alt='Akhil Shijo, Founder and Proprietor of Bitvion Technologies'
-        className='relative w-full h-full rounded-full object-cover border-2 border-secondary/40 shadow-[0_0_40px_rgba(92,225,230,0.15)]'
+        className='relative w-full h-full rounded-full object-cover object-[center_18%] border border-white/25 shadow-[0_8px_24px_rgba(0,0,0,0.45)]'
         onError={() => setHasError(true)}
       />
     </motion.div>

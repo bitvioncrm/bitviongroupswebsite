@@ -9,7 +9,7 @@ const getParticleCount = () => {
   return 48
 }
 
-const HeroBackground = () => {
+const HeroBackground = ({ color = '92, 225, 230' }) => {
   const canvasRef = useRef(null)
   const reduceMotion = useReducedMotion()
 
@@ -61,7 +61,7 @@ const HeroBackground = () => {
 
         ctx.beginPath()
         ctx.arc(p.x * width, p.y * height, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(92, 225, 230, ${p.a})`
+        ctx.fillStyle = `rgba(${color}, ${p.a})`
         ctx.fill()
       })
 
@@ -83,7 +83,7 @@ const HeroBackground = () => {
       window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', onVisibility)
     }
-  }, [reduceMotion])
+  }, [reduceMotion, color])
 
   return (
     <div className='hero-bg absolute inset-0 overflow-hidden pointer-events-none' aria-hidden='true'>

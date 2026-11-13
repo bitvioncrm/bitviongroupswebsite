@@ -162,7 +162,7 @@ export const FounderPage = () => (
       description='Akhil Shijo is the Founder & Proprietor of Bitvion Technologies, a technology enterprise focused on software engineering, AI, intelligent automation and digital products.'
       path='/company/founder'
       type='profile'
-      image='https://bitvion.in/founder.jpeg'
+      image='https://bitvion.in/founder.webp'
       imageAlt='Akhil Shijo, Founder and Proprietor of Bitvion Technologies'
     />
     <StructuredData

@@ -211,11 +211,11 @@ const FounderPortrait = ({ priority = false }) => {
             decoding='async'
             loading={priority ? 'eager' : 'lazy'}
             fetchPriority={priority ? 'high' : 'auto'}
-            className='w-full h-full object-cover object-[center_12%]'
+            className='w-full h-full object-cover object-[center_18%]'
             onError={() => setHasError(true)}
           />
         )}
-        <div className='absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent' aria-hidden='true' />
+        <div className='absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-primary via-primary/55 to-transparent' aria-hidden='true' />
         <div className='absolute inset-x-0 bottom-0 px-6 pb-7 pt-16 text-center'>
           <p className='font-poppins text-secondary text-[11px] uppercase tracking-[0.22em] mb-2'>Founder Profile</p>
           <h3 className='font-poppins font-semibold text-white text-[22px] sm:text-[24px] tracking-[0.12em]'>

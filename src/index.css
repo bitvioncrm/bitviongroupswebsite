@@ -122,9 +122,16 @@ video {
   }
 }
 
-.feature-card:hover {
-  background: var(--black-gradient);
-  box-shadow: var(--card-shadow);
+.feature-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease, background 0.45s ease;
+}
+
+@media (hover: hover) {
+  .feature-card:hover {
+    background: var(--black-gradient);
+    box-shadow: var(--card-shadow);
+    transform: translateY(-8px);
+  }
 }
 
 .feedback-container .feedback-card:last-child {
@@ -204,8 +211,8 @@ video {
 }
 
 .hero-core-mobile {
-  min-height: clamp(220px, 38svh, 360px);
-  max-height: 42svh;
+  min-height: 0;
+  max-height: none;
 }
 
 @media (max-height: 740px) and (max-width: 767px) {
@@ -215,8 +222,8 @@ video {
   }
 
   .hero-core-mobile {
-    min-height: clamp(180px, 32svh, 280px);
-    max-height: 36svh;
+    min-height: 0;
+    max-height: none;
     margin-top: 0.75rem;
   }
 
@@ -240,8 +247,8 @@ video {
   }
 
   .hero-core-mobile {
-    min-height: clamp(160px, 28svh, 240px);
-    max-height: 32svh;
+    min-height: 0;
+    max-height: none;
   }
 }
 
@@ -317,6 +324,42 @@ video {
   box-shadow: 0 0 20px rgba(92, 225, 230, 0.1);
 }
 
+.seal-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.seal-ring::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(92, 225, 230, 0.7);
+  animation: core-orbit 22s linear infinite;
+  pointer-events: none;
+}
+
+.seal-mark {
+  width: min(188px, 34vw);
+  height: min(188px, 34vw);
+  border-radius: 50%;
+  object-fit: contain;
+  background: #00040f;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.28),
+    0 0 0 8px rgba(3, 9, 18, 0.94),
+    0 0 0 9px rgba(92, 225, 230, 0.72);
+}
+
+@media (max-width: 1023px) {
+  .seal-mark,
+  .seal-mark--phone {
+    width: min(156px, 42vw);
+    height: min(156px, 42vw);
+  }
+}
+
 .bitvion-core-field {
   background: radial-gradient(ellipse at center, rgba(0, 180, 216, 0.14) 0%, rgba(92, 225, 230, 0.04) 42%, transparent 72%);
 }
@@ -369,8 +412,11 @@ video {
   .bitvion-core-orbit,
   .bitvion-core-pulse,
   .bitvion-core-node,
-  .hero-scroll-line {
+  .hero-scroll-line,
+  .seal-ring::before,
+  .feature-card:hover {
     animation: none !important;
+    transform: none;
   }
 }
 

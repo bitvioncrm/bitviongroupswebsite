@@ -6,6 +6,20 @@ import { entity } from '../data/entity'
 
 const footerSections = [
   {
+    title: 'The Group',
+    links: [
+      { name: 'Bitvion Groups', path: '/' },
+      { name: 'Technologies', path: '/technologies' },
+      { name: 'Business', path: '/business' },
+      { name: 'Trading', path: '/trading' },
+      { name: 'Consultancy', path: '/consultancy' },
+      { name: 'Travels', path: '/travels' },
+      { name: 'Ventures', path: '/ventures' },
+      { name: 'Imports & Exports', path: '/imports-exports' },
+      { name: 'Products', path: '/bitvion-products' },
+    ],
+  },
+  {
     title: 'Technology',
     links: [
       { name: 'Solutions', path: '/solutions' },

@@ -1,13 +1,18 @@
 import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { navLinks, siteConfig } from '../constants'
+import { navLinks } from '../constants'
+import { groupNav, isTechnologyPath } from '../data/groups'
 import { close } from '../assets'
 import CTAButton from './CTAButton'
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const menuRef = useRef(null)
   const location = useLocation()
+
+  const links = isTechnologyPath(location.pathname)
+    ? [{ id: 'group', title: 'Group', path: '/' }, ...navLinks]
+    : groupNav
 
   const isActive = (path) => {
     if (path === '/company/careers') return location.pathname.startsWith('/company/careers')
@@ -67,7 +72,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </div>
 
             <ul className='list-none flex flex-col gap-1 flex-1'>
-              {navLinks.map((nav, i) => (
+              {links.map((nav, i) => (
                 <motion.li
                   key={nav.id}
                   initial={{ opacity: 0, x: -12 }}
@@ -98,10 +103,10 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
             <div className='mt-10 pt-8 border-t border-white/10 text-center'>
               <p className='font-poppins font-semibold text-white text-[14px] tracking-[0.14em] uppercase'>
-                {siteConfig.name}
+                Bitvion Groups
               </p>
               <p className='font-poppins text-dimWhite text-[13px] mt-2 leading-relaxed max-w-[280px] mx-auto'>
-                {siteConfig.tagline}
+                Building Businesses. Creating Growth.
               </p>
             </div>
           </motion.div>

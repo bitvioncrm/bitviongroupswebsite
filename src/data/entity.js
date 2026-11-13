@@ -41,7 +41,7 @@ export const entity = {
     name: 'Akhil Shijo',
     jobTitle: 'Founder & Proprietor',
     url: `${SITE_URL}/company/founder`,
-    image: `${SITE_URL}/founder.jpeg`,
+    image: `${SITE_URL}/founder.webp`,
     // Add verified public profile URLs only. Never invent placeholders.
     sameAs: [],
   },
@@ -53,9 +53,9 @@ export const entity = {
   },
 }
 
-export const HOME_TITLE = 'Bitvion Technologies | AI, Software & Intelligent Technology'
+export const HOME_TITLE = 'Bitvion Technologies | AI Software Company in Kerala, India'
 export const HOME_DESCRIPTION =
-  'Bitvion Technologies engineers intelligent software, AI solutions, automation systems and digital products. Building intelligence for the real world — founded and owned by Akhil Shijo.'
+  'Bitvion Technologies is an AI and software company in Kerala and Bangalore, India. It engineers intelligent software, automation systems and digital products, including YatrikERP. Founded and owned by Akhil Shijo.'
 
 export const FOUNDER_STATEMENT =
   'Akhil Shijo is the Founder & Proprietor of Bitvion Technologies.'

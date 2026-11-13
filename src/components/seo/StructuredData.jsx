@@ -39,10 +39,11 @@ export const organizationSchema = {
       url: `${SITE_URL}/contact`,
     },
   ],
-  areaServed: {
-    '@type': 'Country',
-    name: entity.organization.location.countryName,
-  },
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'AdministrativeArea', name: 'Kerala' },
+    { '@type': 'City', name: 'Bangalore' },
+  ],
   knowsAbout: CAPABILITIES,
   owns: { '@id': IDS.yatrikerp },
 }
@@ -79,7 +80,7 @@ export const websiteSchema = {
   alternateName: entity.organization.alternateName,
   description:
     'Official website of Bitvion Technologies — a proprietary technology enterprise founded and owned by Akhil Shijo.',
-  inLanguage: 'en',
+  inLanguage: 'en-IN',
   publisher: { '@id': IDS.organization },
 }
 
@@ -105,6 +106,7 @@ export const buildWebPageSchema = ({ name, description, path, type = 'WebPage' }
   url: path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`,
   name,
   description,
+  inLanguage: 'en-IN',
   isPartOf: { '@id': IDS.website },
   about: { '@id': IDS.organization },
   publisher: { '@id': IDS.organization },
@@ -128,10 +130,12 @@ export const buildServiceSchema = (name, description, path) => ({
   description,
   provider: { '@id': IDS.organization },
   url: `${SITE_URL}${path}`,
-  areaServed: {
-    '@type': 'Country',
-    name: 'India',
-  },
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'AdministrativeArea', name: 'Kerala' },
+    { '@type': 'City', name: 'Bangalore' },
+  ],
+  availableLanguage: 'en-IN',
 })
 
 export const buildArticleSchema = (article) => ({
@@ -153,6 +157,19 @@ export const buildFAQSchema = (faqs) => ({
     '@type': 'Question',
     name: faq.question,
     acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+})
+
+export const buildItemListSchema = (name, items) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name,
+  itemListElement: items.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    description: item.description,
+    url: item.path ? `${SITE_URL}${item.path}` : undefined,
   })),
 })
 

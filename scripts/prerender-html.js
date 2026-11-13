@@ -7,7 +7,15 @@ const dist = path.join(__dirname, '..', 'dist')
 const site = 'https://bitvion.in'
 
 const pages = [
-  ['/', 'Bitvion Technologies | AI, Software & Intelligent Technology', 'Bitvion Technologies engineers intelligent software, AI solutions, automation systems and digital products. Building intelligence for the real world — founded and owned by Akhil Shijo.', 'Building Intelligence for the Real World.'],
+  ['/', 'Bitvion Groups | Technology and Business Sectors in India', 'Bitvion Groups is an India house brand based in Kerala and Bangalore. It holds Bitvion Technologies and the sister sectors — business, trading, consultancy, travels, ventures, imports and exports, and products. Founded and led by Akhil Shijo.', 'BITVION GROUPS'],
+  ['/technologies', 'Bitvion Technologies | AI Software Company in Kerala, India', 'Bitvion Technologies is an AI and software company in Kerala and Bangalore, India. It engineers intelligent software, automation systems and digital products, including YatrikERP. Founded and owned by Akhil Shijo.', 'Building Intelligence for the Real World.'],
+  ['/business', 'Bitvion Business | Commercial Structure and Growth | Bitvion Groups', 'Bitvion Business is the commercial sector of Bitvion Groups in India. It shapes offers, market focus, partnerships and the operating rhythm of growth from Kerala and Bangalore.', 'Commercial structure for companies that intend to last.'],
+  ['/trading', 'Bitvion Trading | Market Process, Not a Promise of Returns | Bitvion Groups', 'Bitvion Trading is the market sector of Bitvion Groups in Kerala and Bangalore, India. It is built around study, process and records. It does not offer investment advice or promise returns.', 'A disciplined view of trade, not a promise of returns.'],
+  ['/consultancy', 'Bitvion Consultancy | Operating Advice and Briefs | Bitvion Groups', 'Bitvion Consultancy in Kerala and Bangalore, India advises leadership teams on operating models, technology choices and written briefs that other Bitvion sectors can deliver.', 'Advice that can survive contact with the operation.'],
+  ['/travels', 'Bitvion Travels | Business and Planned Journeys | Bitvion Groups', 'Bitvion Travels, based in Kerala and Bangalore, India, plans business and personal journeys for Bitvion Groups, with a written purpose, real options and support when the plan changes.', 'Travel planned with the same care as a business trip that matters.'],
+  ['/ventures', 'Bitvion Ventures | New Companies, Not an Investment Offer | Bitvion Groups', 'Bitvion Ventures, based in Kerala and Bangalore, India, explores new companies inside Bitvion Groups. It is not an investment offer, a fund or a solicitation for securities.', 'New companies, started with a builder’s discipline.'],
+  ['/imports-exports', 'Bitvion Imports & Exports | Trade Lanes and Documents | Bitvion Groups', 'Bitvion Imports & Exports, based in Kerala and Bangalore, India, coordinates cross-border goods, documents and commercial lanes for Bitvion Groups. Logistics partners move the freight.', 'Goods, documents and routes treated as one system.'],
+  ['/bitvion-products', 'Bitvion Products | YatrikERP and Named Products | Bitvion Groups', 'Bitvion Products, based in Kerala and Bangalore, India, presents the named offerings of Bitvion Groups, starting with YatrikERP and the digital products engineered by Bitvion Technologies.', 'Named products, not a catalogue of intentions.'],
   ['/solutions', 'Custom Software Development & AI Automation | Bitvion Technologies', 'Bitvion Technologies builds custom software and AI automation for businesses — web applications, intelligent workflows, cloud systems and digital products.', 'Custom Software and AI Automation.'],
   ['/solutions/artificial-intelligence', 'AI & Machine Learning Solutions | Bitvion Technologies', 'Bitvion Technologies delivers AI and machine learning solutions including NLP, computer vision, generative AI and intelligent automation for businesses.', 'Intelligence Designed for Real-World Outcomes.'],
   ['/solutions/software-development', 'Custom Software Development Company | Bitvion Technologies', 'Bitvion Technologies builds custom software for businesses — web applications, mobile apps, APIs, SaaS and enterprise systems. Start a project with the Bitvion team.', 'Custom Software Development.'],
@@ -47,6 +55,22 @@ const pages = [
   ['/cookie-policy', 'Cookie Policy | Bitvion Technologies', 'Cookie Policy for Bitvion Technologies website.', 'Cookie Policy'],
   ['/disclaimer', 'Disclaimer | Bitvion Technologies', 'Disclaimer for Bitvion Technologies website content.', 'Disclaimer'],
 ]
+
+const keywordsFor = (route) => {
+  const place = 'Kerala, Bangalore, India, Akhil Shijo, Bitvion Groups'
+  const map = {
+    '/': 'Bitvion Groups India, Bitvion Technologies Kerala, software company Bangalore, technology company India, AI company Kerala, YatrikERP, Bitvion Business, Bitvion Trading, Bitvion Consultancy, Bitvion Travels, Bitvion Ventures, imports and exports India',
+    '/technologies': 'Bitvion Technologies, AI software company India, software company Kerala, software company Bangalore, technology company India, YatrikERP, Akhil Shijo',
+    '/business': `Bitvion Business India, commercial structure, ${place}`,
+    '/trading': `Bitvion Trading India, trade process, ${place}`,
+    '/consultancy': `Bitvion Consultancy India, business advice Kerala, ${place}`,
+    '/travels': `Bitvion Travels India, business travel planning, ${place}`,
+    '/ventures': `Bitvion Ventures India, new companies, ${place}`,
+    '/imports-exports': `Bitvion Imports and Exports India, trade lanes, ${place}`,
+    '/bitvion-products': `Bitvion Products, YatrikERP India, ${place}`,
+  }
+  return map[route] || `Bitvion Technologies, software company India, ${place}`
+}
 
 const escapeHtml = (value) =>
   String(value)
@@ -94,6 +118,13 @@ for (const [route, title, description, heading] of pages) {
     /<meta name="twitter:description" content="[^"]*"\s*\/?>/,
     `<meta name="twitter:description" content="${safeDescription}" />`,
   )
+  html = replaceTag(
+    html,
+    /<meta name="keywords" content="[^"]*"\s*\/?>/,
+    `<meta name="keywords" content="${escapeHtml(keywordsFor(route))}" />`,
+  )
+  html = replaceTag(html, /<link rel="alternate" hreflang="en-IN" href="[^"]*"\s*\/?>/, `<link rel="alternate" hreflang="en-IN" href="${safeCanonical}" />`)
+  html = replaceTag(html, /<link rel="alternate" hreflang="x-default" href="[^"]*"\s*\/?>/, `<link rel="alternate" hreflang="x-default" href="${safeCanonical}" />`)
 
   const fallback = `<div id="root"><main><h1>${safeHeading}</h1><p>${safeDescription}</p><p><a href="${safeCanonical}">Bitvion Technologies</a></p></main></div>`
   html = html.replace('<div id="root"></div>', fallback)

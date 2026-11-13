@@ -7,6 +7,14 @@ const today = new Date().toISOString().split('T')[0]
 const priorityFor = (path) => {
   if (path === '/') return '1.0'
   if (
+    path === '/technologies' ||
+    path === '/business' ||
+    path === '/trading' ||
+    path === '/consultancy' ||
+    path === '/travels' ||
+    path === '/ventures' ||
+    path === '/imports-exports' ||
+    path === '/bitvion-products' ||
     path === '/company/about' ||
     path === '/company/founder' ||
     path === '/products/yatrikerp'

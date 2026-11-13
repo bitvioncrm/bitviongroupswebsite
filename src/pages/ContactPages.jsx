@@ -23,28 +23,37 @@ const ContactPage = () => (
       breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]}
     />
     <div className='grid md:grid-cols-5 gap-10'>
-      <div className='md:col-span-3'>
+      <div className='md:col-span-3 order-2 md:order-1'>
         <ContactForm />
       </div>
-      <aside className='md:col-span-2 space-y-6'>
+      <aside className='md:col-span-2 space-y-6 order-1 md:order-2'>
+        <div className='p-6 rounded-xl bg-black-gradient border border-secondary/30'>
+          <p className='font-poppins text-[12px] tracking-[0.18em] uppercase text-secondary mb-2'>Direct talk</p>
+          <h2 className='font-poppins font-semibold text-white text-[18px] mb-2'>Talk on WhatsApp</h2>
+          <a
+            href={entity.organization.whatsappUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='block font-poppins font-semibold text-white text-[22px] tracking-wide mb-4 hover:text-secondary transition-colors'
+          >
+            {entity.organization.phoneDisplay}
+          </a>
+          <a
+            href={entity.organization.whatsappUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='inline-flex items-center justify-center w-full min-h-[52px] px-5 rounded-[11px] font-poppins font-medium text-[15px] text-primary hero-cta-primary'
+          >
+            Open WhatsApp
+          </a>
+          <p className='font-poppins text-dimWhite text-[14px] mt-3'>Opens a chat with {entity.organization.phoneDisplay}.</p>
+        </div>
         <div className='p-6 rounded-xl bg-black-gradient border border-white/10'>
           <h2 className='font-poppins font-semibold text-white text-[18px] mb-4'>Email</h2>
           <ul className='space-y-2 font-poppins text-[14px] text-dimWhite' role='list'>
             <li><a href='mailto:info@bitvion.in' className='hover:text-secondary transition-colors'>info@bitvion.in</a> — General</li>
             <li><a href='mailto:business@bitvion.in' className='hover:text-secondary transition-colors'>business@bitvion.in</a> — Business</li>
           </ul>
-        </div>
-        <div className='p-6 rounded-xl bg-black-gradient border border-white/10'>
-          <h2 className='font-poppins font-semibold text-white text-[18px] mb-4'>WhatsApp</h2>
-          <a
-            href={entity.organization.whatsappUrl}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='inline-flex items-center justify-center min-h-[48px] px-5 rounded-[11px] font-poppins font-medium text-[15px] text-primary hero-cta-primary'
-          >
-            Message {entity.organization.phoneDisplay}
-          </a>
-          <p className='font-poppins text-dimWhite text-[14px] mt-3'>Chat directly with Bitvion Technologies.</p>
         </div>
         <div className='p-6 rounded-xl bg-black-gradient border border-white/10'>
           <h2 className='font-poppins font-semibold text-white text-[18px] mb-3'>Locations</h2>
