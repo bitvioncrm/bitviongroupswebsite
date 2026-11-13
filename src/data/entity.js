@@ -46,6 +46,10 @@ export const entity = {
     ],
     operatingAddress: '404, Mittathanickal House, Prakash Post Office, Udayagiri, Idukki, Kerala, India',
     presence: 'Bangalore, Karnataka, India',
+    officers: [
+      { role: 'Grievance Officer', name: 'Akhil Shijo' },
+      { role: 'Nodal Officer', name: 'Akhil Shijo' },
+    ],
   },
   person: {
     name: 'Akhil Shijo',

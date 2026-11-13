@@ -53,6 +53,16 @@ const ContactPage = () => (
           <dt className='text-dimWhite'>Udyam</dt>
           <dd className='text-white mt-1'>{entity.organization.udyam}</dd>
         </div>
+        {entity.organization.officers.map((officer) => (
+          <div key={officer.role}>
+            <dt className='text-dimWhite'>{officer.role}</dt>
+            <dd className='text-white mt-1'>
+              {officer.name}
+              <span className='block text-dimWhite'>{entity.organization.email}</span>
+              <span className='block text-dimWhite'>{entity.organization.phoneDisplay}</span>
+            </dd>
+          </div>
+        ))}
       </dl>
     </div>
     <div className='grid md:grid-cols-5 gap-10'>
