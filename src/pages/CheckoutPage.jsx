@@ -50,18 +50,20 @@ const CheckoutPage = () => {
       <PageHero
         eyebrow='Checkout'
         title={<>YOUR <span className='text-gradient'>ORDER.</span></>}
-        subtitle='Choose a service, check the price in rupees, and place the order. No login is required.'
+        subtitle='Pay Bitvion Technologies in Indian Rupees. The price is shown before you pay. No account is required.'
         breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Pricing', path: '/pricing' }, { name: 'Checkout', path: '/checkout' }]}
       />
 
       {order ? (
         <div className='max-w-[720px] p-6 rounded-[20px] bg-black-gradient border border-secondary/30'>
-          <h2 className='font-poppins font-semibold text-white text-[24px]'>Order received</h2>
-          <p className='font-poppins text-dimWhite mt-3'>Reference {reference}</p>
+          <h2 className='font-poppins font-semibold text-white text-[24px]'>Amount due</h2>
+          <p className='font-poppins text-dimWhite mt-3'>Payment reference {reference}</p>
           <p className='font-poppins text-white mt-4'>{order.offer.name}</p>
-          <p className='font-poppins text-secondary text-[28px] mt-2'>{formatInr(order.offer.price)}</p>
-          <p className='font-poppins text-dimWhite text-[15px] leading-[24px] mt-4'>
-            Bitvion Technologies will send the payment request for this amount to {order.customer.email} and to {order.customer.phone}. The payment page is the Razorpay checkout once the gateway is connected. This screen confirms the order. It does not mean the payment has already been taken.
+          <p className='font-poppins text-dimWhite text-[14px] mt-1'>Quantity 1 · Shipping ₹0</p>
+          <p className='font-poppins text-secondary text-[32px] mt-3'>{formatInr(order.offer.price)}</p>
+          <p className='font-poppins text-white mt-4'>Payable to Bitvion Technologies</p>
+          <p className='font-poppins text-dimWhite text-[15px] leading-[24px] mt-2'>
+            Billed to {order.customer.name}, {order.customer.email}, {order.customer.phone}. GST, where it applies, is extra and is shown on the invoice. This screen is the payment step for the amount above.
           </p>
           <Link to='/pricing' className='inline-block mt-6 font-poppins text-secondary'>Back to services</Link>
         </div>
@@ -100,7 +102,7 @@ const CheckoutPage = () => {
             ))}
             {error && <p className='font-poppins text-[14px] text-red-400' role='alert'>{error}</p>}
             <button type='submit' className='hero-cta-primary min-h-[52px] px-6 rounded-[11px] font-poppins font-medium text-primary'>
-              Place order
+              Pay {formatInr(selected.price)}
             </button>
           </form>
           <aside className='p-6 rounded-[20px] bg-black-gradient border border-white/10 h-fit'>
@@ -110,11 +112,12 @@ const CheckoutPage = () => {
             <ul className='mt-4 space-y-2 font-poppins text-[14px] text-dimWhite'>
               <li>Quantity: 1</li>
               <li>Shipping: ₹0. This is a digital service.</li>
+              <li>Amount due: {formatInr(selected.price)}</li>
               <li>GST, where it applies, is extra and will be shown on the invoice.</li>
               <li>{selected.delivery}</li>
             </ul>
             <p className='font-poppins text-[13px] text-white/70 mt-4'>
-              By placing this order you agree to the <Link className='text-secondary' to='/terms'>Terms</Link>, the <Link className='text-secondary' to='/refund-policy'>Refund &amp; Cancellation Policy</Link> and the <Link className='text-secondary' to='/shipping-policy'>Shipping &amp; Delivery Policy</Link>.
+              By paying you agree to the <Link className='text-secondary' to='/terms'>Terms</Link>, the <Link className='text-secondary' to='/refund-policy'>Refund &amp; Cancellation Policy</Link> and the <Link className='text-secondary' to='/shipping-policy'>Shipping &amp; Delivery Policy</Link>.
             </p>
           </aside>
         </div>

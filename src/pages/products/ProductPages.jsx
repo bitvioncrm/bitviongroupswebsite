@@ -232,7 +232,7 @@ export const YatrikERPPage = () => {
         </p>
         <div className='flex flex-wrap gap-4 mt-6'>
           <CTAButton to='/checkout?offer=yatrikerp-workshop' variant='primary'>
-            Buy the workshop
+            Buy now · {formatInr(getOffer('yatrikerp-workshop').price)}
           </CTAButton>
           <CTAButton to='/request-demo' variant='secondary' onClick={() => trackEvent('yatrikerp_demo_click')}>
             Request a free demo

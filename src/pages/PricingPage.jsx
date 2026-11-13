@@ -34,7 +34,7 @@ const PricingPage = () => (
             to={`/checkout?offer=${offer.id}`}
             className='hero-cta-primary inline-flex items-center justify-center mt-6 min-h-[48px] px-5 rounded-[11px] font-poppins font-medium text-primary'
           >
-            Select and checkout
+            Buy now · {formatInr(offer.price)}
           </Link>
         </article>
       ))}
