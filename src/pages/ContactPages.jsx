@@ -3,6 +3,7 @@ import PageMeta from '../components/seo/PageMeta'
 import StructuredData, { buildBreadcrumbSchema } from '../components/seo/StructuredData'
 import PageShell from '../components/layout/PageShell'
 import PageHero from '../components/layout/PageHero'
+import PolicyBar from '../components/PolicyBar'
 import ContactForm from '../components/forms/ContactForm'
 import ProposalForm from '../components/forms/ProposalForm'
 import DemoForm from '../components/forms/DemoForm'
@@ -14,14 +15,17 @@ import { entity } from '../data/entity'
 
 const ContactPage = () => (
   <PageShell>
-    <PageMeta title='Contact Bitvion Technologies | Technology & Software Solutions' description='Contact Bitvion Technologies to discuss AI, software, automation and digital transformation projects.' path='/contact' />
-    <StructuredData data={buildBreadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])} />
+    <PageMeta title='Contact Us | Bitvion Technologies' description='Contact Us at Bitvion Technologies. 404, Mittathanickal House, Prakash Post Office, Udayagiri, Idukki, Kerala, India. Email info@bitvion.in or WhatsApp +91 91431 39991.' path='/contact' />
+    <StructuredData data={buildBreadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact Us', path: '/contact' }])} />
     <PageHero
-      eyebrow='Contact'
-      title={<>LET&apos;S BUILD <br className='sm:block hidden' />SOMETHING <br className='sm:block hidden' /><span className='text-gradient'>INTELLIGENT.</span></>}
+      eyebrow='Contact Us'
+      title={<>CONTACT <span className='text-gradient'>US.</span></>}
       subtitle='Bitvion Technologies is the registered business. Use the form, or talk directly on the number below.'
-      breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]}
+      breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact Us', path: '/contact' }]}
     />
+    <div className='mb-8'>
+      <PolicyBar />
+    </div>
     <div className='p-6 mb-8 rounded-[20px] bg-black-gradient border border-white/10'>
       <h2 className='font-poppins font-semibold text-white text-[20px] mb-4'>Registered business</h2>
       <dl className='grid sm:grid-cols-2 gap-4 font-poppins text-[15px]'>

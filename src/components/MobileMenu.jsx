@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { navLinks } from '../constants'
 import { groupNav, isTechnologyPath } from '../data/groups'
+import { requiredPolicies } from '../data/policies'
 import { close } from '../assets'
 import CTAButton from './CTAButton'
 
@@ -109,13 +110,21 @@ const MobileMenu = ({ isOpen, onClose }) => {
               Talk to Bitvion →
             </CTAButton>
 
-            <div className='mt-10 pt-8 border-t border-white/10 text-center'>
-              <p className='font-poppins font-semibold text-white text-[14px] tracking-[0.14em] uppercase'>
-                Bitvion Groups
-              </p>
-              <p className='font-poppins text-dimWhite text-[13px] mt-2 leading-relaxed max-w-[280px] mx-auto'>
-                Building Businesses. Creating Growth.
-              </p>
+            <div className='mt-8 pt-6 border-t border-white/10'>
+              <p className='font-poppins text-secondary text-[12px] tracking-[0.14em] uppercase mb-3'>Website policies</p>
+              <ul className='flex flex-wrap gap-2'>
+                {requiredPolicies.map((policy) => (
+                  <li key={policy.path}>
+                    <Link
+                      to={policy.path}
+                      onClick={onClose}
+                      className='inline-flex min-h-[40px] items-center rounded-[8px] border border-white/20 px-3 font-poppins text-[13px] text-white'
+                    >
+                      {policy.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         </div>

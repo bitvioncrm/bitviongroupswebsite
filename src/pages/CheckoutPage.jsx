@@ -120,7 +120,7 @@ const CheckoutPage = () => {
               Cancel before the work starts for a full refund to the original payment method within 5–7 business days. Card numbers are not entered on this page. Complaints are answered within 4 business days.
             </p>
             <p className='font-poppins text-[13px] text-white/70 mt-3'>
-              By paying you agree to the <Link className='text-secondary' to='/terms'>Terms</Link>, the <Link className='text-secondary' to='/refund-policy'>Refund &amp; Cancellation Policy</Link> and the <Link className='text-secondary' to='/shipping-policy'>Shipping &amp; Delivery Policy</Link>.
+              By paying you agree to the <Link className='text-secondary' to='/terms'>Terms &amp; Conditions</Link>, the <Link className='text-secondary' to='/refund-policy'>Refund Policy</Link> and the <Link className='text-secondary' to='/shipping-policy'>Shipping Policy</Link>. Also see <Link className='text-secondary' to='/privacy-policy'>Privacy Policy</Link> and <Link className='text-secondary' to='/contact'>Contact Us</Link>.
             </p>
           </aside>
         </div>

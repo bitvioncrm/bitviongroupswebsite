@@ -47,7 +47,7 @@ export const termsConditions = {
   sections: [
     {
       heading: 'Acceptance of Terms',
-      content: 'By using bitvion.in, selecting a service, or placing an order, you agree to these Terms & Conditions and to the Refund & Cancellation Policy and the Shipping & Delivery Policy. If you do not agree, do not use the website.',
+      content: 'By using bitvion.in, selecting a service, or placing an order, you agree to these Terms & Conditions and to the Refund Policy and the Shipping Policy. If you do not agree, do not use the website.',
     },
     {
       heading: 'Website Use',
@@ -63,7 +63,7 @@ export const termsConditions = {
     },
     {
       heading: 'Complaints',
-      content: 'Write to the Grievance Officer, Akhil Shijo, at info@bitvion.in or on +91 91431 39991. Include your name, order reference, and what went wrong. Bitvion Technologies answers a complaint within 4 business days of receiving it. A complaint about a payment is handled under the Refund & Cancellation Policy.',
+      content: 'Write to the Grievance Officer, Akhil Shijo, at info@bitvion.in or on +91 91431 39991. Include your name, order reference, and what went wrong. Bitvion Technologies answers a complaint within 4 business days of receiving it. A complaint about a payment is handled under the Refund Policy.',
     },
     {
       heading: 'Intellectual Property',
@@ -137,10 +137,10 @@ export const disclaimer = {
 }
 
 export const refundPolicy = {
-  title: 'Refund & Cancellation Policy',
+  title: 'Refund Policy',
   meta: {
-    title: 'Refund & Cancellation Policy | Bitvion Technologies',
-    description: 'Cancellation rules and refund timelines for services sold by Bitvion Technologies.',
+    title: 'Refund Policy | Bitvion Technologies',
+    description: 'Refund Policy and cancellation rules for services sold by Bitvion Technologies. Eligible refunds within 5–7 business days.',
   },
   sections: [
     {
@@ -167,10 +167,10 @@ export const refundPolicy = {
 }
 
 export const shippingPolicy = {
-  title: 'Shipping & Delivery Policy',
+  title: 'Shipping Policy',
   meta: {
-    title: 'Shipping & Delivery Policy | Bitvion Technologies',
-    description: 'How Bitvion Technologies delivers digital services. No physical shipping is offered on this website.',
+    title: 'Shipping Policy | Bitvion Technologies',
+    description: 'Shipping Policy for Bitvion Technologies digital services. Delivery by email, session or deployment. No courier charge.',
   },
   sections: [
     {
@@ -187,7 +187,7 @@ export const shippingPolicy = {
     },
     {
       heading: 'If we cannot deliver',
-      content: 'If Bitvion Technologies cannot deliver the service you paid for, you may cancel under the Refund & Cancellation Policy and receive an eligible refund within 5–7 business days.',
+      content: 'If Bitvion Technologies cannot deliver the service you paid for, you may cancel under the Refund Policy and receive an eligible refund within 5–7 business days.',
     },
   ],
 }

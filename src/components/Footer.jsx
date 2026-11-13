@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../style'
 import BrandLogo from './BrandLogo'
+import PolicyBar from './PolicyBar'
 import { entity } from '../data/entity'
 
 const footerSections = [
@@ -73,8 +74,8 @@ const footerSections = [
       { name: 'Contact Us', path: '/contact' },
       { name: 'Privacy Policy', path: '/privacy-policy' },
       { name: 'Terms & Conditions', path: '/terms' },
-      { name: 'Refund & Cancellation', path: '/refund-policy' },
-      { name: 'Shipping & Delivery', path: '/shipping-policy' },
+      { name: 'Shipping Policy', path: '/shipping-policy' },
+      { name: 'Refund Policy', path: '/refund-policy' },
       { name: 'Cookie Policy', path: '/cookie-policy' },
       { name: 'Disclaimer', path: '/disclaimer' },
     ],
@@ -131,6 +132,10 @@ const Footer = () => {
         </p>
       </div>
 
+      <div className='w-full mb-8'>
+        <PolicyBar />
+      </div>
+
       <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 mb-8'>
         {footerSections.map((section) => (
           <div key={section.title}>
@@ -154,6 +159,17 @@ const Footer = () => {
       </div>
 
       <div className='w-full pt-6 border-t border-white/10 text-center'>
+        <p className='font-poppins text-dimWhite text-[14px] mb-4'>
+          <Link className='hover:text-secondary' to='/contact'>Contact Us</Link>
+          {' · '}
+          <Link className='hover:text-secondary' to='/privacy-policy'>Privacy Policy</Link>
+          {' · '}
+          <Link className='hover:text-secondary' to='/terms'>Terms &amp; Conditions</Link>
+          {' · '}
+          <Link className='hover:text-secondary' to='/shipping-policy'>Shipping Policy</Link>
+          {' · '}
+          <Link className='hover:text-secondary' to='/refund-policy'>Refund Policy</Link>
+        </p>
         <p className='font-poppins text-dimWhite text-[14px]'>
           &copy; {currentYear} Bitvion Technologies. All Rights Reserved.
         </p>
