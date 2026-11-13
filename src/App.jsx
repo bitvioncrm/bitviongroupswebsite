@@ -28,6 +28,8 @@ const InsightArticlePage = lazyNamed(() => import('./pages/insights/InsightPages
 const ContactPage = lazy(() => import('./pages/ContactPages'))
 const RequestProposalPage = lazyNamed(() => import('./pages/ContactPages'), 'RequestProposalPage')
 const RequestDemoPage = lazyNamed(() => import('./pages/ContactPages'), 'RequestDemoPage')
+const PricingPage = lazy(() => import('./pages/PricingPage'))
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage'))
 const LegalPage = lazy(() => import('./pages/LegalPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
@@ -69,6 +71,8 @@ const App = () => (
         <Route path='insights' element={<S><InsightsPage /></S>} />
         <Route path='insights/:slug' element={<S><InsightArticlePage /></S>} />
         <Route path='contact' element={<S><ContactPage /></S>} />
+        <Route path='pricing' element={<S><PricingPage /></S>} />
+        <Route path='checkout' element={<S><CheckoutPage /></S>} />
         <Route path='request-proposal' element={<S><RequestProposalPage /></S>} />
         <Route path='request-demo' element={<S><RequestDemoPage /></S>} />
         <Route path='careers' element={<Navigate to='/company/careers' replace />} />
@@ -76,6 +80,8 @@ const App = () => (
         <Route path='terms' element={<S><LegalPage /></S>} />
         <Route path='cookie-policy' element={<S><LegalPage /></S>} />
         <Route path='disclaimer' element={<S><LegalPage /></S>} />
+        <Route path='refund-policy' element={<S><LegalPage /></S>} />
+        <Route path='shipping-policy' element={<S><LegalPage /></S>} />
         <Route path='*' element={<S><NotFoundPage /></S>} />
       </Route>
     </Routes>

@@ -20,6 +20,7 @@ export const organizationSchema = {
   founder: { '@id': IDS.person },
   address: entity.organization.locations.map((place) => ({
     '@type': 'PostalAddress',
+    ...(place.streetAddress ? { streetAddress: place.streetAddress } : {}),
     addressLocality: place.locality,
     addressRegion: place.region,
     addressCountry: place.country,

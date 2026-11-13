@@ -47,13 +47,17 @@ const pages = [
   ['/insights/engineering-ai-into-business-workflows', 'Engineering AI Into Business Workflows | Bitvion Insights', 'How to integrate AI into existing business workflows for practical operational outcomes.', 'Engineering AI Into Business Workflows'],
   ['/insights/software-architecture-for-growing-teams', 'Software Architecture for Growing Teams | Bitvion Insights', 'Architecture principles for building software that scales with teams and business requirements.', 'Software Architecture for Growing Teams'],
   ['/insights/from-manual-process-to-automation', 'From Manual Process to Intelligent Automation | Bitvion Insights', 'A structured approach to business process automation and AI integration.', 'From Manual Process to Intelligent Automation'],
-  ['/contact', 'Contact Bitvion Technologies | Technology & Software Solutions', 'Contact Bitvion Technologies to discuss AI, software, automation and digital transformation projects.', "Let's Build Something Intelligent."],
+  ['/contact', 'Contact Bitvion Technologies | Technology & Software Solutions', 'Contact Bitvion Technologies, the proprietary concern of Akhil Shijo, at 404, Mittathanickal House, Prakash Post Office, Udayagiri, Idukki, Kerala, India. Email info@bitvion.in or call +91 91431 39991.', "Let's Build Something Intelligent."],
+  ['/pricing', 'Services and Prices in INR | Bitvion Technologies', 'Published prices in Indian Rupees for Bitvion Technologies consultations, briefs, the YatrikERP workshop and the first software milestone.', 'PUBLISHED PRICES IN RUPEES.'],
+  ['/checkout', 'Checkout | Bitvion Technologies', 'Checkout for Bitvion Technologies services. Prices are shown in Indian Rupees before you place the order.', 'YOUR ORDER.'],
   ['/request-proposal', 'Request a Proposal | Bitvion Technologies', 'Tell us what you want to build and receive a tailored technology proposal from Bitvion.', 'Tell Us What You Want to Build.'],
   ['/request-demo', 'Request a Demo | Bitvion Technologies', 'Schedule a demonstration of YatrikERP and Bitvion products.', 'See Bitvion in Action.'],
   ['/privacy-policy', 'Privacy Policy | Bitvion Technologies', 'Privacy Policy for Bitvion Technologies website and services.', 'Privacy Policy'],
   ['/terms', 'Terms & Conditions | Bitvion Technologies', 'Terms and Conditions for use of the Bitvion Technologies website.', 'Terms & Conditions'],
   ['/cookie-policy', 'Cookie Policy | Bitvion Technologies', 'Cookie Policy for Bitvion Technologies website.', 'Cookie Policy'],
   ['/disclaimer', 'Disclaimer | Bitvion Technologies', 'Disclaimer for Bitvion Technologies website content.', 'Disclaimer'],
+  ['/refund-policy', 'Refund & Cancellation Policy | Bitvion Technologies', 'Cancellation rules and refund timelines for services sold by Bitvion Technologies. Eligible refunds are processed within 5–7 business days.', 'Refund & Cancellation Policy'],
+  ['/shipping-policy', 'Shipping & Delivery Policy | Bitvion Technologies', 'Bitvion Technologies delivers digital services by email, session or deployment access. There is no physical shipping charge.', 'Shipping & Delivery Policy'],
 ]
 
 const keywordsFor = (route) => {

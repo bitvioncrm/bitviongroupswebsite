@@ -27,15 +27,25 @@ export const entity = {
     primaryActivity: 'Computer programming, consultancy and related activities',
     udyam: 'UDYAM-KL-03-0036543',
     location: {
-      locality: 'Kerala',
+      streetAddress: '404, Mittathanickal House, Prakash Post Office',
+      locality: 'Udayagiri',
+      district: 'Idukki',
       region: 'Kerala',
       country: 'IN',
       countryName: 'India',
     },
     locations: [
-      { locality: 'Kerala', region: 'Kerala', country: 'IN' },
+      {
+        streetAddress: '404, Mittathanickal House, Prakash Post Office',
+        locality: 'Udayagiri',
+        district: 'Idukki',
+        region: 'Kerala',
+        country: 'IN',
+      },
       { locality: 'Bangalore', region: 'Karnataka', country: 'IN' },
     ],
+    operatingAddress: '404, Mittathanickal House, Prakash Post Office, Udayagiri, Idukki, Kerala, India',
+    presence: 'Bangalore, Karnataka, India',
   },
   person: {
     name: 'Akhil Shijo',
@@ -135,7 +145,7 @@ export const companyFaqs = [
   },
   {
     question: 'Where is Bitvion Technologies based?',
-    answer: 'Bitvion Technologies is based in Kerala, India, with presence in Bangalore, India.',
+    answer: 'Bitvion Technologies operates from 404, Mittathanickal House, Prakash Post Office, Udayagiri, Idukki, Kerala, India, and also works from Bangalore, India.',
   },
   {
     question: 'What is YatrikERP?',

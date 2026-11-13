@@ -5,6 +5,7 @@ import StructuredData, { buildBreadcrumbSchema } from '../components/seo/Structu
 import PageShell from '../components/layout/PageShell'
 import PageHero from '../components/layout/PageHero'
 import { legalPages, LEGAL_LAST_UPDATED } from '../data/legal'
+import { entity } from '../data/entity'
 import styles from '../style'
 
 const LegalPage = () => {
@@ -30,6 +31,11 @@ const LegalPage = () => {
         subtitle={`Last Updated: ${LEGAL_LAST_UPDATED}`}
         breadcrumbs={[{ name: 'Home', path: '/' }, { name: page.title, path: pathname }]}
       />
+      <div className='max-w-[800px] mb-8 p-6 rounded-[20px] bg-black-gradient border border-white/10 font-poppins text-[15px]'>
+        <p className='text-white'>{entity.organization.legalName}, a proprietary concern of Akhil Shijo</p>
+        <p className='text-dimWhite mt-2'>{entity.organization.operatingAddress}</p>
+        <p className='text-dimWhite mt-2'>{entity.organization.email} · {entity.organization.phoneDisplay}</p>
+      </div>
       <div className='max-w-[800px] space-y-8'>
         {page.sections.map((section) => (
           <section key={section.heading}>
@@ -37,8 +43,8 @@ const LegalPage = () => {
             <p className={`${styles.paragraph} text-[16px]`}>{section.content}</p>
           </section>
         ))}
-        <p className='font-poppins text-dimWhite text-[14px] italic border-t border-white/10 pt-6'>
-          This document is provided as a template. For final production use, we recommend legal review.
+        <p className='font-poppins text-dimWhite text-[14px] border-t border-white/10 pt-6'>
+          Bitvion Technologies, a proprietary concern of Akhil Shijo. Questions: info@bitvion.in or +91 91431 39991.
         </p>
       </div>
     </PageShell>

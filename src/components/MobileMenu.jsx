@@ -93,9 +93,17 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </ul>
 
             <CTAButton
+              to='/pricing'
+              variant='secondary'
+              styles='w-full text-center min-h-[52px] text-[16px] mt-6'
+              onClick={onClose}
+            >
+              Prices in rupees
+            </CTAButton>
+            <CTAButton
               to='/contact'
               variant='primary'
-              styles='w-full text-center min-h-[52px] text-[16px] mt-6'
+              styles='w-full text-center min-h-[52px] text-[16px] mt-3'
               onClick={onClose}
             >
               Talk to Bitvion →

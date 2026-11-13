@@ -20,6 +20,8 @@ export const staticRoutes = [
   '/company/careers',
   '/insights',
   '/contact',
+  '/pricing',
+  '/checkout',
   '/request-demo',
   '/request-proposal',
   '/careers',
@@ -27,6 +29,8 @@ export const staticRoutes = [
   '/terms',
   '/cookie-policy',
   '/disclaimer',
+  '/refund-policy',
+  '/shipping-policy',
 ]
 
 export const solutionSlugs = [

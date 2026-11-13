@@ -19,9 +19,42 @@ const ContactPage = () => (
     <PageHero
       eyebrow='Contact'
       title={<>LET&apos;S BUILD <br className='sm:block hidden' />SOMETHING <br className='sm:block hidden' /><span className='text-gradient'>INTELLIGENT.</span></>}
-      subtitle='Reach out to discuss your technology requirements with the Bitvion team.'
+      subtitle='Bitvion Technologies is the registered business. Use the form, or talk directly on the number below.'
       breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]}
     />
+    <div className='p-6 mb-8 rounded-[20px] bg-black-gradient border border-white/10'>
+      <h2 className='font-poppins font-semibold text-white text-[20px] mb-4'>Registered business</h2>
+      <dl className='grid sm:grid-cols-2 gap-4 font-poppins text-[15px]'>
+        <div>
+          <dt className='text-dimWhite'>Legal name</dt>
+          <dd className='text-white mt-1'>{entity.organization.legalName}</dd>
+        </div>
+        <div>
+          <dt className='text-dimWhite'>Proprietor</dt>
+          <dd className='text-white mt-1'>Akhil Shijo</dd>
+        </div>
+        <div>
+          <dt className='text-dimWhite'>Operating address</dt>
+          <dd className='text-white mt-1'>{entity.organization.operatingAddress}</dd>
+        </div>
+        <div>
+          <dt className='text-dimWhite'>Also working from</dt>
+          <dd className='text-white mt-1'>{entity.organization.presence}</dd>
+        </div>
+        <div>
+          <dt className='text-dimWhite'>Support email</dt>
+          <dd className='text-white mt-1'><a className='hover:text-secondary' href={`mailto:${entity.organization.email}`}>{entity.organization.email}</a></dd>
+        </div>
+        <div>
+          <dt className='text-dimWhite'>Phone</dt>
+          <dd className='text-white mt-1'><a className='hover:text-secondary' href={entity.organization.whatsappUrl}>{entity.organization.phoneDisplay}</a></dd>
+        </div>
+        <div>
+          <dt className='text-dimWhite'>Udyam</dt>
+          <dd className='text-white mt-1'>{entity.organization.udyam}</dd>
+        </div>
+      </dl>
+    </div>
     <div className='grid md:grid-cols-5 gap-10'>
       <div className='md:col-span-3 order-2 md:order-1'>
         <ContactForm />
@@ -58,8 +91,8 @@ const ContactPage = () => (
         <div className='p-6 rounded-xl bg-black-gradient border border-white/10'>
           <h2 className='font-poppins font-semibold text-white text-[18px] mb-3'>Locations</h2>
           <ul className='space-y-2 font-poppins text-[14px] text-dimWhite' role='list'>
-            <li>Kerala, India</li>
-            <li>Bangalore, India</li>
+            <li>{entity.organization.operatingAddress}</li>
+            <li>{entity.organization.presence}</li>
           </ul>
         </div>
       </aside>

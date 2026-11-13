@@ -51,7 +51,13 @@ const groupsSchema = {
     { '@type': 'City', name: 'Bangalore' },
   ],
   address: [
-    { '@type': 'PostalAddress', addressLocality: 'Kerala', addressRegion: 'Kerala', addressCountry: 'IN' },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: '404, Mittathanickal House, Prakash Post Office',
+      addressLocality: 'Udayagiri',
+      addressRegion: 'Kerala',
+      addressCountry: 'IN',
+    },
     { '@type': 'PostalAddress', addressLocality: 'Bangalore', addressRegion: 'Karnataka', addressCountry: 'IN' },
   ],
 }

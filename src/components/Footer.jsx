@@ -60,6 +60,8 @@ const footerSections = [
     title: 'Contact',
     links: [
       { name: 'Talk to Bitvion', path: '/contact' },
+      { name: 'Services and prices', path: '/pricing' },
+      { name: 'Checkout', path: '/checkout' },
       { name: 'Request Proposal', path: '/request-proposal' },
       { name: 'Request Demo', path: '/request-demo' },
     ],
@@ -67,8 +69,12 @@ const footerSections = [
   {
     title: 'Legal',
     links: [
+      { name: 'About Us', path: '/company/about' },
+      { name: 'Contact Us', path: '/contact' },
       { name: 'Privacy Policy', path: '/privacy-policy' },
       { name: 'Terms & Conditions', path: '/terms' },
+      { name: 'Refund & Cancellation', path: '/refund-policy' },
+      { name: 'Shipping & Delivery', path: '/shipping-policy' },
       { name: 'Cookie Policy', path: '/cookie-policy' },
       { name: 'Disclaimer', path: '/disclaimer' },
     ],
@@ -150,6 +156,9 @@ const Footer = () => {
       <div className='w-full pt-6 border-t border-white/10 text-center'>
         <p className='font-poppins text-dimWhite text-[14px]'>
           &copy; {currentYear} Bitvion Technologies. All Rights Reserved.
+        </p>
+        <p className='font-poppins text-dimWhite/80 text-[13px] mt-2 max-w-[640px] mx-auto'>
+          Bitvion Groups is a brand of Bitvion Technologies, a proprietary concern of Akhil Shijo. Udyam {entity.organization.udyam}. {entity.organization.operatingAddress}.
         </p>
         <p className='font-poppins text-dimWhite/50 text-[12px] mt-2'>
           We don&apos;t just build software. We engineer intelligent systems.

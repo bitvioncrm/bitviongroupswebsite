@@ -17,7 +17,7 @@ import EntityNav from '../../components/seo/EntityNav'
 import FaqSection from '../../components/seo/FaqSection'
 import styles from '../../style'
 import { arrowUp } from '../../assets'
-import { companyFaqs, founderFaqs } from '../../data/entity'
+import { companyFaqs, entity, founderFaqs } from '../../data/entity'
 
 const companyLinks = [
   { title: 'About', path: '/company/about', description: 'Who we are and what we build.' },
@@ -128,7 +128,8 @@ export const AboutPage = () => (
             ['Udyam Registration', 'UDYAM-KL-03-0036543'],
             ['Date of incorporation', '24 January 2026'],
             ['Date of commencement', '24 January 2026'],
-            ['Locations', 'Kerala, India · Bangalore, India'],
+            ['Operating address', entity.organization.operatingAddress],
+            ['Also working from', entity.organization.presence],
             ['Founder & Proprietor', 'Akhil Shijo'],
             ['Official product', 'YatrikERP'],
           ].map(([label, value]) => (

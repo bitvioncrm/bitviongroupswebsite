@@ -92,6 +92,9 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            <Link to='/pricing' className='font-poppins text-[14px] text-dimWhite hover:text-white shrink-0 ml-3 py-2.5'>
+              Prices
+            </Link>
             <CTAButton to='/contact' variant='primary' styles='py-2.5 px-5 text-[14px] shrink-0 ml-3'>
               Talk to Bitvion
             </CTAButton>

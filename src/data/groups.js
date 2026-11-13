@@ -305,6 +305,8 @@ const technologyPrefixes = [
   '/company',
   '/insights',
   '/contact',
+  '/pricing',
+  '/checkout',
   '/request-proposal',
   '/request-demo',
   '/careers',
@@ -312,6 +314,8 @@ const technologyPrefixes = [
   '/terms',
   '/cookie-policy',
   '/disclaimer',
+  '/refund-policy',
+  '/shipping-policy',
 ]
 
 export const isTechnologyPath = (pathname) =>

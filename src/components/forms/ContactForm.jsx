@@ -19,10 +19,10 @@ const projectTypes = [
 
 const budgetRanges = [
   { value: '', label: 'Select budget range (optional)' },
-  { value: 'under-5k', label: 'Under $5,000' },
-  { value: '5k-15k', label: '$5,000 – $15,000' },
-  { value: '15k-50k', label: '$15,000 – $50,000' },
-  { value: '50k-plus', label: '$50,000+' },
+  { value: 'under-5k', label: 'Under ₹25,000' },
+  { value: '5k-15k', label: '₹25,000 – ₹1,00,000' },
+  { value: '15k-50k', label: '₹1,00,000 – ₹5,00,000' },
+  { value: '50k-plus', label: '₹5,00,000+' },
   { value: 'undecided', label: 'Not yet determined' },
 ]
 

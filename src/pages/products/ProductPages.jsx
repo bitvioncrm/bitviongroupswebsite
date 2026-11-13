@@ -14,6 +14,7 @@ import PageHero from '../../components/layout/PageHero'
 import FlowDiagram from '../../components/layout/FlowDiagram'
 import CTAButton from '../../components/CTAButton'
 import { trackEvent } from '../../utils/analytics'
+import { formatInr, getOffer } from '../../data/offers'
 import styles from '../../style'
 
 const yatrikModules = [
@@ -104,6 +105,8 @@ export const ProductsOverview = () => {
         <p className={`${styles.paragraph} mt-4 max-w-[600px]`}>
           AI-powered modular operations platform by Bitvion Technologies for transportation, hospital and school operations.
         </p>
+        <p className='font-poppins text-secondary text-[28px] mt-5'>{formatInr(getOffer('yatrikerp-workshop').price)}</p>
+        <p className='font-poppins text-white/80 text-[14px] mt-1'>YatrikERP workshop. Price in Indian Rupees. GST, where it applies, is extra.</p>
         <span className='inline-block mt-6 font-poppins text-secondary group-hover:translate-x-2 transition-transform'>Explore YatrikERP →</span>
       </Link>
     </PageShell>
@@ -221,11 +224,20 @@ export const YatrikERPPage = () => {
         ]}
       />
 
-      <div className='flex flex-wrap gap-4'>
-        <CTAButton to='/request-demo' variant='primary' onClick={() => trackEvent('yatrikerp_demo_click')}>
-          Request a YatrikERP Demo
-        </CTAButton>
-        <CTAButton to='/contact?type=erp' variant='secondary'>Talk to Bitvion</CTAButton>
+      <div className='p-6 mb-8 rounded-[20px] bg-black-gradient border border-secondary/30 max-w-[720px]'>
+        <h2 className='font-poppins font-semibold text-white text-[22px]'>YatrikERP workshop</h2>
+        <p className='font-poppins text-secondary text-[32px] mt-2'>{formatInr(getOffer('yatrikerp-workshop').price)}</p>
+        <p className={`${styles.paragraph} mt-3`}>
+          A guided online workshop for one organisation, plus setup notes. The price is in Indian Rupees and is exclusive of GST where GST applies. There is no shipping charge. A product demonstration is free and is separate from this paid workshop.
+        </p>
+        <div className='flex flex-wrap gap-4 mt-6'>
+          <CTAButton to='/checkout?offer=yatrikerp-workshop' variant='primary'>
+            Buy the workshop
+          </CTAButton>
+          <CTAButton to='/request-demo' variant='secondary' onClick={() => trackEvent('yatrikerp_demo_click')}>
+            Request a free demo
+          </CTAButton>
+        </div>
       </div>
     </PageShell>
   )
