@@ -161,7 +161,7 @@ const Footer = () => {
           Bitvion Groups is a brand of Bitvion Technologies, a proprietary concern of Akhil Shijo. Udyam {entity.organization.udyam}. {entity.organization.operatingAddress}.
         </p>
         <p className='font-poppins text-dimWhite/80 text-[13px] mt-2 max-w-[640px] mx-auto'>
-          Grievance Officer and Nodal Officer: Akhil Shijo, {entity.organization.email}, {entity.organization.phoneDisplay}.
+          Grievance Officer and Nodal Officer: Akhil Shijo, {entity.organization.email}, {entity.organization.phoneDisplay}. Complaints are answered within 4 business days.
         </p>
         <p className='font-poppins text-dimWhite/50 text-[12px] mt-2'>
           We don&apos;t just build software. We engineer intelligent systems.

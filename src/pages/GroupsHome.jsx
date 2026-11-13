@@ -247,7 +247,7 @@ const GroupsHome = () => {
         </article>
         <article>
           <h3 className='text-white font-poppins text-[20px] mb-3'>Pages that say what they are</h3>
-          <p className='groups-muted'>Trading does not promise returns. Ventures is not an investment offer. Travels is planning, not a ticket engine. Products names YatrikERP and does not invent empty product names to fill a ring.</p>
+          <p className='groups-muted'>Trading is commercial operations, not a brokerage. Ventures is not a fund. Travels is planning, not a ticket engine. Products names YatrikERP and does not invent empty product names to fill a ring.</p>
         </article>
       </div>
     </section>

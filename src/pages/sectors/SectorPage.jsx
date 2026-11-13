@@ -27,8 +27,8 @@ const ORBIT = {
     { label: 'RHYTHM', path: '/technologies' },
   ],
   trading: [
-    { label: 'STUDY', path: '/contact' },
-    { label: 'LIMITS', path: '/imports-exports' },
+    { label: 'GOODS', path: '/contact' },
+    { label: 'ORDERS', path: '/imports-exports' },
     { label: 'RECORDS', path: '/technologies' },
     { label: 'REVIEW', path: '/contact' },
   ],

@@ -64,6 +64,7 @@ const ContactPage = () => (
           </div>
         ))}
       </dl>
+      <p className='font-poppins text-dimWhite text-[14px] mt-4'>Complaints sent to the Grievance Officer are answered within 4 business days.</p>
     </div>
     <div className='grid md:grid-cols-5 gap-10'>
       <div className='md:col-span-3 order-2 md:order-1'>

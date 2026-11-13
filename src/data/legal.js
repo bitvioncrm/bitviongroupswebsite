@@ -1,4 +1,4 @@
-export const LEGAL_LAST_UPDATED = '13 November 2026'
+export const LEGAL_LAST_UPDATED = '14 November 2026'
 
 export const privacyPolicy = {
   title: 'Privacy Policy',
@@ -13,7 +13,7 @@ export const privacyPolicy = {
     },
     {
       heading: 'Information We Collect',
-      content: 'When you use a form, checkout, demo request or careers application, we collect the details you type: name, company, email, phone number, country, and the message or service you select. If you place an order, we also keep the service name, the price in Indian Rupees, and the order reference. We do not ask for or store card numbers or UPI PINs on this website. Payment credentials, when a payment is made, are handled by the payment gateway.',
+      content: 'When you use a form, checkout, demo request or careers application, we collect the details you type: name, company, email, phone number, country, and the message or service you select. If you place an order, we also keep the service name, the price in Indian Rupees, and the order reference. This website does not ask for, store, or keep a card number, CVV, expiry date, PIN, or UPI PIN. Those details, when a payment is made, are entered only on the payment gateway.',
     },
     {
       heading: 'Why We Collect It',
@@ -54,8 +54,16 @@ export const termsConditions = {
       content: 'You may browse the public pages, read prices, and place an order for a listed service. You are responsible for the accuracy of the name, email and phone number you submit, and for using the website lawfully. You may not misuse the forms, attempt to break the site, or present Bitvion content as your own.',
     },
     {
+      heading: 'What you can buy',
+      content: 'The priced services on this website are a technology consultation, a discovery brief, a YatrikERP workshop, and a software first milestone. They are digital professional services from Bitvion Technologies. This website does not sell securities, cryptocurrency, gambling, adult goods, weapons, medicines, tobacco, or money-transfer services, and it does not take investments.',
+    },
+    {
       heading: 'Orders and Prices',
-      content: 'Listed services show a price in Indian Rupees. That price is exclusive of Goods and Services Tax where GST applies. Placing an order is a request to buy that service from Bitvion Technologies. The contract for the work begins when Bitvion Technologies confirms the order.',
+      content: 'Each listed service shows its price in Indian Rupees before you pay. That price is exclusive of Goods and Services Tax where GST applies. There is no minimum or maximum order value beyond the price of the service you select, and the same price is shown for every payment method. Placing an order is a request to buy that service from Bitvion Technologies. The contract for the work begins when Bitvion Technologies confirms the order. Bitvion Technologies is the seller. The payment gateway only collects the amount. The service is not a product of the payment gateway or of any bank.',
+    },
+    {
+      heading: 'Complaints',
+      content: 'Write to the Grievance Officer, Akhil Shijo, at info@bitvion.in or on +91 91431 39991. Include your name, order reference, and what went wrong. Bitvion Technologies answers a complaint within 4 business days of receiving it. A complaint about a payment is handled under the Refund & Cancellation Policy.',
     },
     {
       heading: 'Intellectual Property',
@@ -123,7 +131,7 @@ export const disclaimer = {
     },
     {
       heading: 'Professional Advice',
-      content: 'Website content does not constitute professional, legal or financial advice. Consult qualified professionals for specific guidance.',
+      content: 'Website content does not constitute professional, legal or financial advice. Bitvion Trading is not a brokerage, and Bitvion Ventures is not a fund or an offer of securities. Consult qualified professionals for specific guidance.',
     },
   ],
 }
@@ -153,7 +161,7 @@ export const refundPolicy = {
     },
     {
       heading: 'How to ask',
-      content: 'Write to info@bitvion.in with the order reference, the service name, and the reason for the cancellation. Bitvion Technologies will reply to that email with the decision.',
+      content: 'This policy is shown on the checkout page before you pay. To cancel, write to info@bitvion.in or message +91 91431 39991 with the order reference, the service name, and the reason. Bitvion Technologies replies within 4 business days with the decision. An approved refund goes back to the same payment method used for the order.',
     },
   ],
 }

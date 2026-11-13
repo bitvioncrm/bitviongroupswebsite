@@ -35,7 +35,7 @@ const LegalPage = () => {
         <p className='text-white'>{entity.organization.legalName}, a proprietary concern of Akhil Shijo</p>
         <p className='text-dimWhite mt-2'>{entity.organization.operatingAddress}</p>
         <p className='text-dimWhite mt-2'>{entity.organization.email} · {entity.organization.phoneDisplay}</p>
-        <p className='text-dimWhite mt-2'>Grievance Officer and Nodal Officer: Akhil Shijo, {entity.organization.email}, {entity.organization.phoneDisplay}.</p>
+        <p className='text-dimWhite mt-2'>Grievance Officer and Nodal Officer: Akhil Shijo, {entity.organization.email}, {entity.organization.phoneDisplay}. Complaints are answered within 4 business days.</p>
       </div>
       <div className='max-w-[800px] space-y-8'>
         {page.sections.map((section) => (

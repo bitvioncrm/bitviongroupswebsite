@@ -57,8 +57,8 @@ export const industriesList = [
   {
     slug: 'financial-services',
     title: 'Financial Services',
-    headline: <>ENGINEERING FOR <span className='text-gradient'>FINANCIAL SERVICES.</span></>,
-    description: 'Software systems for financial operations, reporting, workflow automation and secure data processing.',
+    headline: <>SOFTWARE FOR <span className='text-gradient'>FINANCE TEAMS.</span></>,
+    description: 'Bitvion Technologies builds operational software for finance teams. It does not provide banking, lending, investments, or money transfer.',
     capabilities: ['Operational software', 'Reporting systems', 'Process automation', 'Secure integrations', 'Audit-ready workflows'],
     meta: {
       title: 'Financial Services Technology | Bitvion Technologies',

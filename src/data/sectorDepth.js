@@ -24,24 +24,24 @@ export const sectorDepth = {
   ],
   trading: [
     {
-      title: 'A decision that can be reread',
+      title: 'An order that can be reread',
       paragraphs: [
-        'Bitvion Trading is interested in the note that still makes sense a month later: the market, the horizon, the limit, and what would have proved the idea wrong.',
-        'The page does not publish returns. It does not invite anyone to treat the website as investment advice, a solicitation, or an account.',
+        'Bitvion Trading is interested in the commercial note that still makes sense a month later: the goods, the buyer, the seller, and what was delivered.',
+        'The page does not open brokerage accounts. It does not sell securities or cryptocurrency, and it does not accept investment money.',
       ],
     },
     {
-      title: 'Goods are a different question',
+      title: 'Movement is a different question',
       paragraphs: [
-        'A position on a screen and a shipment of goods can belong to the same commercial relationship. They are still different kinds of work.',
-        'When the question becomes a lane, documents and a partner at a port, Imports & Exports takes it. Trading keeps the process and the record.',
+        'The commercial order and the shipment are related, and they are still different kinds of work.',
+        'When the question becomes a lane, documents and a partner at a port, Imports & Exports takes it. Trading keeps the order and the record.',
       ],
     },
     {
-      title: 'Software after the rule',
+      title: 'Software after the order',
       paragraphs: [
-        'A dashboard can store the decision. It cannot supply the judgement. If a team needs a system around an agreed process, Bitvion Technologies can engineer it.',
-        'The sector’s public standard is restraint: say no when the information is not good enough, and write the losses down with the rest.',
+        'A system can store the order. If a team needs that system, Bitvion Technologies can engineer it.',
+        'The sector declines work that is a brokerage, a money transfer, or an investment.',
       ],
     },
   ],
@@ -109,7 +109,7 @@ export const sectorDepth = {
     {
       title: 'This page is not a raise',
       paragraphs: [
-        'A conversation can start here. The page is not an offer to invest, a fund prospectus, or a solicitation for securities.',
+        'A conversation can start here about building a company. The page is not a fund, and it does not take investment money or sell securities.',
         'Send the problem, the customer and what has already been tried. A paragraph is enough to begin. A deck is optional.',
       ],
     },
