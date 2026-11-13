@@ -127,7 +127,7 @@ const GroupsHome = () => {
               primary={groupNodes}
               secondary={[]}
               coreLabel='Groups'
-              markSrc='/bitvion-groups-seal.webp'
+              markSrc='/bitvion-groups-seal-display.webp'
               roundMark
               markClassName='seal-mark'
               ariaLabel='Bitvion Groups network of eight sectors'
@@ -138,7 +138,7 @@ const GroupsHome = () => {
               primary={groupNodes}
               secondary={[]}
               coreLabel='Groups'
-              markSrc='/bitvion-groups-seal.webp'
+              markSrc='/bitvion-groups-seal-display.webp'
               roundMark
               markClassName='seal-mark'
               ariaLabel='Bitvion Groups network of eight sectors'
@@ -159,7 +159,7 @@ const GroupsHome = () => {
       </motion.h2>
       <p className='groups-muted max-w-[640px] mt-4 mb-8'>The ring is the map of the house. Technologies remains the deep company site. Every other name opens its own page.</p>
       <div className='groups-orbit'>
-        <img className='groups-orbit__core' src='/bitvion-groups-seal.webp' alt='Bitvion Groups seal' width='1536' height='1536' decoding='async' fetchPriority='high' />
+        <img className='groups-orbit__core' src='/bitvion-groups-seal-display.webp' alt='Bitvion Groups seal' width='640' height='640' decoding='async' fetchPriority='high' />
         {sectors.map((sector, index) => (
           <MotionLink
             key={sector.slug}
@@ -180,7 +180,7 @@ const GroupsHome = () => {
 
     <section className='groups-section'>
       <figure className='media-stage'>
-        <img src='/bitvion-groups-ecosystem.webp' alt='Bitvion Groups ecosystem: Technologies, Products, Business, Trading, Consultancy, Travels, Ventures, and Imports and Exports around the group seal.' width='1536' height='1536' decoding='async' />
+        <img src='/bitvion-groups-ecosystem-display.webp' alt='Bitvion Groups ecosystem: Technologies, Products, Business, Trading, Consultancy, Travels, Ventures, and Imports and Exports around the group seal.' width='1040' height='1040' decoding='async' loading='lazy' />
       </figure>
     </section>
 

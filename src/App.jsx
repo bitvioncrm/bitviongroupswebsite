@@ -1,10 +1,11 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
-import Home from './pages/Home'
 import GroupsHome from './pages/GroupsHome'
-import SectorPage from './pages/sectors/SectorPage'
 import CookieConsent from './components/CookieConsent'
+
+const Home = lazy(() => import('./pages/Home'))
+const SectorPage = lazy(() => import('./pages/sectors/SectorPage'))
 
 const lazyNamed = (importFn, name) =>
   lazy(() => importFn().then((m) => ({ default: m[name] })))
@@ -46,14 +47,14 @@ const App = () => (
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<GroupsHome />} />
-        <Route path='technologies' element={<Home />} />
-        <Route path='business' element={<SectorPage slug='business' />} />
-        <Route path='trading' element={<SectorPage slug='trading' />} />
-        <Route path='consultancy' element={<SectorPage slug='consultancy' />} />
-        <Route path='travels' element={<SectorPage slug='travels' />} />
-        <Route path='ventures' element={<SectorPage slug='ventures' />} />
-        <Route path='imports-exports' element={<SectorPage slug='imports-exports' />} />
-        <Route path='bitvion-products' element={<SectorPage slug='bitvion-products' />} />
+        <Route path='technologies' element={<S><Home /></S>} />
+        <Route path='business' element={<S><SectorPage slug='business' /></S>} />
+        <Route path='trading' element={<S><SectorPage slug='trading' /></S>} />
+        <Route path='consultancy' element={<S><SectorPage slug='consultancy' /></S>} />
+        <Route path='travels' element={<S><SectorPage slug='travels' /></S>} />
+        <Route path='ventures' element={<S><SectorPage slug='ventures' /></S>} />
+        <Route path='imports-exports' element={<S><SectorPage slug='imports-exports' /></S>} />
+        <Route path='bitvion-products' element={<S><SectorPage slug='bitvion-products' /></S>} />
         <Route path='solutions' element={<S><SolutionsOverview /></S>} />
         <Route path='solutions/:slug' element={<S><SolutionDetailPage /></S>} />
         <Route path='products' element={<S><ProductsOverview /></S>} />

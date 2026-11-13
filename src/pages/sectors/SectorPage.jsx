@@ -124,7 +124,7 @@ const SectorHero = ({ sector, story }) => {
               secondary={secondary}
               accent={sector.accent}
               coreLabel={sector.nav}
-              markSrc='/bitvion-groups-seal.webp'
+              markSrc='/bitvion-groups-seal-display.webp'
               roundMark
               markClassName='seal-mark'
               ariaLabel={`${sector.name} network`}
@@ -139,7 +139,7 @@ const SectorHero = ({ sector, story }) => {
             secondary={secondary}
             accent={sector.accent}
             coreLabel={sector.nav}
-            markSrc='/bitvion-groups-seal.webp'
+            markSrc='/bitvion-groups-seal-display.webp'
             roundMark
             markClassName='seal-mark'
             ariaLabel={`${sector.name} network`}

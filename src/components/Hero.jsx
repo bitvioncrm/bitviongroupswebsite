@@ -116,7 +116,7 @@ const Hero = () => {
             >
               <BitvionCore
                 variant='mobile'
-                markSrc='/bitvion-groups-seal.webp'
+                markSrc='/bitvion-groups-seal-display.webp'
                 roundMark
                 markClassName='seal-mark'
               />
@@ -140,7 +140,7 @@ const Hero = () => {
             <div className='w-full max-w-[520px]'>
               <BitvionCore
                 variant='desktop'
-                markSrc='/bitvion-groups-seal.webp'
+                markSrc='/bitvion-groups-seal-display.webp'
                 roundMark
                 markClassName='seal-mark'
               />
